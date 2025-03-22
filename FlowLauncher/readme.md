@@ -1,0 +1,4 @@
+- https://github.com/Jack251970/Flow.Launcher.Plugin.ClipboardPlus
+- https://github.com/taooceros/Flow.Plugin.WindowWalker
+- https://github.com/taooceros/Flow.Plugin.VSCodeWorkspace
+- https://github.com/paradox00/Flow.Launcher.Plugin.WindowsTerminal

@@ -1,0 +1,188 @@
+patch:
+  "style/layout/min_width": 80
+  "show_notifications_time": 1400
+  "style/label_format": "%s."
+  "style/inline_preedit": false
+  "schema/full_icon": "icons/full.ico"
+  "style/vertical_text": true
+  "style/layout/align_type": center
+  "style/mark_text": ""
+  "style/layout/max_width": 2800
+  "style/layout/hilite_spacing": 10
+  "style/layout/margin_x": 12
+  "style/layout/hilite_padding_x": 5
+  "style/layout/round_corner": 8
+  "schema/ascii_icon": "icons/en.ico"
+  "style/paging_on_scroll": false
+  "style/vertical_text_left_to_right": true
+  "style/comment_font_point": 14
+  "style/fullscreen": false
+  "style/click_to_capture": false
+  "style/comment_font_face": "霞鹜文楷"
+  "style/layout/shadow_offset_y": "8"
+  "style/hover_type": none
+  "style/label_font_point": 14
+  "style/layout/hilite_padding": 5
+  "style/vertical_auto_reverse": false
+  "style/layout/min_height": 0
+  "schema/icon": "icons/zh.ico"
+  "style/layout/corner_radius": 8
+  "style/layout/candidate_spacing": 15
+  "style/layout/max_height": 2800
+  "style/layout/border": 1
+  "style/preedit_type": composition
+  "style/candidate_abbreviate_length": 0
+  "style/enhanced_position": true
+  "style/horizontal": true
+  "style/layout/margin_y": 12
+  "style/label_font_face": "霞鹜文楷"
+  "style/vertical_text_with_wrap": false
+  "show_notifications": true
+  "style/antialias_mode": default
+  "style/mouse_hover_ms": 0
+  "style/font_face": "霞鹜文楷"
+  "style/layout/type": vertical
+  "style/ascii_tip_follow_cursor": true
+  "style/layout/shadow_offset_x": "-8"
+  "style/layout/border_width": 1
+  "style/font_point": 14
+  "schema/half_icon": "icons/half.ico"
+  "style/layout/shadow_radius": 8
+  "menu/alternative_select_labels": [1,2,3,4,5,6,7,8,9,]
+  "style/color_scheme": "mint_dark_blue"
+  "style/layout/hilite_padding_y": 5
+  "style/layout/spacing": 18
+  "global_ascii": true
+  "style/color_scheme_dark": "mint_dark_blue"
+  "style/display_tray_icon": false
+  "engine/translators/+":
+    - table_translator@custom_phrase            # 自定义短语
+  switches:
+    - name: ascii_mode
+      reset: 1  # 默认英文
+      states: [ 中文, 英文 ]
+    - name: emoji_suggestion
+      states: [ "😣️","😁️"]
+      reset: 1
+    - name: full_shape
+      states: [ 半角, 全角 ]
+      reset: 0
+    - name: transcription
+      states: [ 简体 , 繁体 ]
+      reset: 0
+    - name: ascii_punct
+      states: [ "。，" , "．，" ]
+      reset: 0
+  # 自定义短语
+  custom_phrase:
+    dictionary: ""
+    user_dict: custom_phrase   # 需要手动创建 custom_phrase.txt 文件
+    db_class: stabledb
+    enable_completion: false   # 补全提示
+    enable_sentence: true     # 禁止造句
+    initial_quality: 99        # custom_phrase 的权重应该比其他词库大
+  schema_list:
+    - {schema: rime_mint}
+  # 折叠选项以节省空间，多方案时建议折叠 true ，一个方案建议展开 false
+  "switcher/fold_options": false
+  punctuator:
+    full_shape:
+      ' ' : { commit: '　' }
+      ',' : { commit: ， }
+      '.' : { commit: 。 }
+      '<' : [ 《, 〈, «, ‹ ]
+      '>' : [ 》, 〉, », › ]
+      '/' : [ ／, ÷ ]
+      '?' : { commit: ？ }
+      ';' : { commit: ； }
+      ':' : { commit: ： }
+      '''' : { pair: [ '‘', '’' ] }
+      '"' : { pair: [ '“', '”' ] }
+      '\' : [ 、, ＼ ]
+      '|' : [ ・, ｜, '§', '¦' ]
+      '`' : ｀
+      '~' : [ 〜, ～, 〰 ]
+      '!' : { commit: ！ }
+      '@' : [ ＠, ☯ ]
+      '#' : [ ＃, ⌘ ]
+      '%' : [ ％, '°', '℃' ]
+      '$' : [ ￥, '$', '€', '£', '¥', '¢', '¤' ]
+      '^' : { commit: …… }
+      '&' : ＆
+      '*' : [ ＊, ・, ·, ×, ※, ❂ ]
+      '(' : （
+      ')' : ）
+      '-' : －
+      '_' : ——
+      '+' : ＋
+      '=' : ＝
+      '[' : [ 「, 【, 〔, ［ ]
+      ']' : [ 」, 】, 〕, ］ ]
+      '{' : [ 『, 〖, ｛ ]
+      '}' : [ 』, 〗, ｝ ]
+    half_shape:
+      ',' : { commit: ， }
+      '.' : { commit: 。 }
+      '<' : [ 《, 〈, «, ‹ ]
+      '>' : [ 》, 〉, », › ]
+      '/' : [ 、, '/', ／, ÷ ]
+      '?' : { commit: ？ }
+      ';' : { commit: ； }
+      ':' : { commit: ： }
+      '''' : { pair: [ '‘', '’' ] }
+      '"' : { pair: [ '“', '”' ] }
+      '\' : [ 、, '\', ＼ ]
+      '|' : [ ・, '|', ｜, '§', '¦' ]
+      '`' : '`'
+      '~' : [ '~', 〜, ～, 〰 ]
+      '!' : { commit: ！ }
+      '@' : '@'
+      '#' : '#'
+      '%' : [ '%', ％, '°', '℃' ]
+      '$' : [ ￥, '$', '€', '£', '¥', '¢', '¤' ]
+      '^' : { commit: …… }
+      '&' : '&'
+      '*' : [ '*', ＊, ・, ·, ×, ※, ❂ ]
+      '(' : （
+      ')' : ）
+      '-' : '-'
+      '_' : ——
+      '+' : '+'
+      '=' : '='
+      '[' : [ 「, 【, 〔, ［ ]
+      ']' : [ 」, 】, 〕,  ］ ]
+      '{' : [ 『, 〖, ｛ ]
+      '}' : [ 』, 〗, ｝ ]
+  key_binder:
+    bindings:
+      # Emacs 风格的快捷键
+      # - { when: composing, accept: Control+p, send: Up }     # composing 时,Control+p 等同于 Up 键
+      # - { when: composing, accept: Control+n, send: Down }
+      # - { when: composing, accept: Control+b, send: Left }
+      # - { when: composing, accept: Control+f, send: Right }
+      # - { when: composing, accept: Control+a, send: Home }
+      # - { when: composing, accept: Control+e, send: End }
+      # - { when: composing, accept: Control+d, send: Delete }
+      # - { when: composing, accept: Control+k, send: Shift+Delete } # 删除到行尾
+      # - { when: composing, accept: Control+g, send: Escape }       # 退出编码
+      # - { when: composing, accept: Alt+v, send: Page_Up }          # 翻页
+      # - { when: composing, accept: Control+v, send: Page_Down }
+      # 按词移动光标
+      - { when: composing, accept: ISO_Left_Tab, send: Shift+Left } # ISO_Left_Tab 是 Shift+Tab
+      - { when: composing, accept: Shift+Tab, send: Shift+Left }
+      - { when: composing, accept: Tab, send: Shift+Right }
+      # 翻页
+      - { when: paging, accept: minus, send: Page_Up }             # 编码窗口翻页
+      - { when: has_menu, accept: equal, send: Page_Down }
+      - { when: paging, accept: comma, send: Page_Up }             # 候选窗口翻页
+      - { when: has_menu, accept: period, send: Page_Down }
+      - { when: predicting, accept: comma, send: comma }           # 在预编码模式下,不当作快捷键
+      - { when: predicting, accept: period, send: period }
+      # 切换状态
+      # - { when: always, accept: Control+Shift+1, select: .next }   # 切换输入方案
+      # - { when: always, accept: Control+Shift+2, toggle: ascii_mode } # 切换中/西文模式
+      # - { when: always, accept: Control+Shift+3, toggle: full_shape } # 切换全角/半角
+      # - { when: always, accept: Control+Shift+4, toggle: transcription } # 切换简体/繁体
+      # - { when: always, accept: Control+Shift+5, toggle: extended_charset } # 切换扩展字符
+      # - { when: always, accept: Shift+space, toggle: full_shape } # 另一种切换全角/半角的方式
+      # - { when: always, accept: Control+period, toggle: ascii_punct } # 切换中/西文标点

@@ -1,0 +1,5 @@
+  enable_user_dict: false
+  enable_sentence: false
+  enable_completion: false
+  enable_encoder: false
+  encode_commit_history: false

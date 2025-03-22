@@ -1,0 +1,23 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.15.0.0
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Tue Apr  2 11:27:28 2024"
+  rime_version: 1.11.0
+patch:
+  "style/color_scheme": mint_dark_blue
+# 针对不同的应用程序设置输入法的默认状态
+# ascii_mode true 表示使用英文
+# vim_mode true 表示在使用 <Esc> 或者 ctrl + [ 时自动切换到英文
+  app_options:
+    Code.exe:
+      vim_mode: true
+    Obsidian.exe:
+      vim_mode: true
+    Cursor.exe:
+      vim_mode: true
+    Windsurf.exe:
+      vim_mode: true
+    # WindowsTerminal.exe:
+    #   ascii_punct: true
+    #   vim_mode: true
