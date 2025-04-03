@@ -1,0 +1,659 @@
+{
+  // toggleSuggestionDetails 按键切换用户代码片段预览(建议细节, 及其代码片段过大及其卡顿, 可查看按键绑定切换)
+  // ----------------- 系统设置 -----------------
+  "notebook.insertFinalNewline": true,
+  // 关闭copilot
+  "chat.commandCenter.enabled": false,
+  // 保存文件时在文件末尾插入一个最终新行
+  "files.insertFinalNewline": true,
+  // 禁用遥测
+  "telemetry.telemetryLevel": "off",
+  // 禁用遥测
+  "redhat.telemetry.enabled": false,
+  // vscode内置文件浏览器替代系统浏览器
+  "files.simpleDialog.enable": true,
+  // 正斜杠路径复制
+  "explorer.copyRelativePathSeparator": "/",
+  // 关闭烦人的Workspace Trust提示框
+  "security.workspace.trust.enabled": false,
+  // 差异编辑器忽略前导空格或尾随空格中的更改
+  "diffEditor.ignoreTrimWhitespace": false,
+  // 编辑器行高
+  "editor.lineHeight": 1.4,
+  // chinese
+  "editor.unicodeHighlight.allowedLocales": { "zh-hans": true, "zh-hant": true },
+  // 顶部窗口显示标题
+  "window.title": "${folderName} ${activeEditorShort}",
+  // 字体大小设置
+  "editor.fontSize": 17,
+  // "editor.fontFamily": "'Cascadia Code NF', '等距更纱黑体 SC', monospace",
+  "editor.fontFamily": "'Maple Mono NF CN'",
+  // 字体样式设置
+  "editor.fontLigatures": "'calt', 'cv01', 'cv03', 'cv35', 'ss01', 'ss06'",
+  // 字重
+  "editor.fontWeight": "normal",
+  // 启用括号指导线
+  "editor.guides.bracketPairs": true,
+  // 启用高亮选中的缩进指导线
+  "editor.guides.highlightActiveIndentation": true,
+  // 启用水平括号指导线
+  "editor.guides.bracketPairsHorizontal": "active",
+  // 启用缩进指导线
+  "editor.guides.indentation": true,
+  // 启用括号着色
+  "editor.bracketPairColorization.enabled": true,
+  // 资源管理器缩进大小
+  "workbench.tree.indent": 16,
+  // 键入;时格式化
+  "editor.formatOnType": true,
+  // 编辑器默认格式化程序
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 粘贴时不格式化文件
+  "editor.formatOnPaste": false,
+  // 保存时不格式化文件
+  "editor.formatOnSave": false,
+  // 在基于文件内容打开文件时是否自动检测 #editor.tabSize# 和 #editor.insertSpaces#
+  "editor.detectIndentation": true,
+  // 一个制表符几个空格（此处的值仅为默认值，会被自动检测覆盖）
+  "editor.tabSize": 2,
+  // 同上，自动检测后会以文件实际情况为准
+  "editor.insertSpaces": true,
+  // 控制是否及如何在“导航路径”视图中显示文件路径(tab栏下方)
+  "breadcrumbs.filePath": "on",
+  // 编辑器始终自动改写左引号或右引号
+  "editor.autoClosingOvertype": "always",
+  // 编辑器始终自动删除右引号和右方括号
+  "editor.autoClosingDelete": "always",
+  // 在编辑器中显示内联提示
+  "editor.inlayHints.enabled": "on",
+  // 在编辑器中自动显示内联建议
+  "editor.inlineSuggest.enabled": true,
+  // 显示片段建议
+  "editor.suggest.showSnippets": true,
+  // 输入时显示含有参数文档和类型信息的小面板
+  "editor.parameterHints.enabled": true,
+  // scroll bar
+  "editor.scrollbar.vertical": "auto",
+  "editor.scrollbar.horizontal": "auto",
+  // 忽略扩展推荐
+  "extensions.ignoreRecommendations": true,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  // 控制是否在键入代码时自动显示建议
+  "editor.quickSuggestions": { "comments": true, "other": true, "strings": true },
+  // 不以紧凑形式显示文件夹
+  "explorer.compactFolders": false,
+  //smart: 在重复名称末尾智能地添加/递增数字
+  "explorer.incrementalNaming": "smart",
+  // 控制显示快速建议前的等待时间（毫秒）
+  "editor.quickSuggestionsDelay": 0,
+  // 启用粘滞滚动，即显示上一级对应的代码
+  "editor.stickyScroll.enabled": true,
+  // 使用空格缩进时模拟制表符的行为，可以方便对齐
+  "editor.stickyTabStops": true,
+  // zen 模式显示行号
+  "zenMode.hideLineNumbers": false,
+  // 折行
+  "editor.wordWrap": "on",
+  // 建议的接受方式
+  "editor.suggest.insertMode": "replace",
+  // 控制排序时是否提高靠近光标的词语的优先级
+  "editor.suggest.localityBonus": true,
+  // 禁用建议必须匹配开头
+  "editor.suggest.matchOnWordStartOnly": false,
+  // 在多个工作区和窗口间共享建议记忆
+  "editor.suggest.shareSuggestSelections": true,
+  // 控制建议小部件底部的状态栏可见
+  "editor.suggest.showStatusBar": true,
+  // 控制在键入触发字符后是否自动显示建议
+  "editor.suggestOnTriggerCharacters": true,
+  // 始终预先选择第一个建议
+  "editor.suggestSelection": "first",
+  // 不突出显示可能与基本 ASCII 字符混淆的字符
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  // 编辑器相对行号
+  "editor.lineNumbers": "relative",
+  // 会根据文档中的文字提供建议列表
+  "editor.wordBasedSuggestions": "matchingDocuments",
+  // 前后<html>标签同时修改
+  "editor.linkedEditing": true,
+  "editor.rulers": [120],
+  // 右侧小地图
+  "editor.minimap.enabled": false,
+  // "editor.minimap.scale": 1,
+  // "editor.minimap.maxColumn": 120,
+  // "editor.minimap.renderCharacters": false,
+  // 控制单元格编辑器中行号的显示
+  "notebook.lineNumbers": "on",
+  // 在状态栏显示当前问题
+  "problems.showCurrentInStatus": true,
+  // 显示搜索结果所在行号
+  "search.showLineNumbers": true,
+  // 等待一定时间后自动保存
+  "files.autoSave": "afterDelay",
+  // 自动保存的等待时间（毫秒）
+  "files.autoSaveDelay": 60000,
+  // 当搜索词为小写时，则不区分大小写进行搜索；否则区分大小写
+  "search.smartCase": true,
+  // 把文件删除时无需确认
+  "explorer.confirmDelete": false,
+  // 移动文件时无需确认
+  "explorer.confirmDragAndDrop": false,
+  // 允许语言检测使用编辑器历史记录
+  "workbench.editor.historyBasedLanguageDetection": true,
+  // tab栏高度紧凑
+  "window.density.editorTabHeight": "compact",
+  // 侧边栏按钮位置更换
+  "workbench.activityBar.location": "top",
+  "window.commandCenter": false,
+  "editor.mouseWheelZoom": true,
+  "window.restoreWindows": "none",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.colorTheme": "Eva Dark",
+  "editor.cursorBlinking": "solid",
+  // 光标平滑移动
+  "editor.cursorSmoothCaretAnimation": "on",
+  "workbench.list.smoothScrolling": true,
+  "workbench.settings.applyToAllProfiles": ["workbench.startupEditor"],
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.enablePreview": true,
+  // 猜测编码
+  "files.autoGuessEncoding": true,
+  // 语义高亮
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {
+    "[Eva Dark]": {
+      "enabled": true,
+      "rules": {
+        // 静态量（静态变量，静态函数）
+        "*.static": { "fontStyle": "bold" }
+      }
+    }
+  },
+  // 禁用 vscode 声音提示
+  "accessibility.signalOptions.volume": 0,
+  "accessibility.signals.codeActionTriggered": { "sound": "off" },
+  "accessibility.signals.onDebugBreak": { "sound": "off" },
+  "accessibility.signals.lineHasBreakpoint": { "sound": "off", "announcement": "off" },
+  "accessibility.signals.lineHasError": { "sound": "off", "announcement": "off" },
+  "accessibility.signals.lineHasFoldedArea": { "sound": "off", "announcement": "off" },
+  "accessibility.signals.lineHasInlineSuggestion": { "sound": "off" },
+  "accessibility.signals.lineHasWarning": { "sound": "off", "announcement": "off" },
+  "accessibility.signals.chatRequestSent": { "sound": "off" },
+  "accessibility.signals.chatResponseReceived": { "sound": "off" },
+  "accessibility.signals.clear": { "sound": "off" },
+  "accessibility.signals.diffLineDeleted": { "sound": "off" },
+  "accessibility.signals.diffLineInserted": { "sound": "off" },
+  "accessibility.signals.diffLineModified": { "sound": "off" },
+  "accessibility.signals.notebookCellCompleted": { "sound": "off" },
+  "accessibility.signals.noInlayHints": { "sound": "off" },
+  "accessibility.signals.notebookCellFailed": { "sound": "off" },
+  "accessibility.signals.positionHasError": { "sound": "off" },
+  "accessibility.signals.progress": { "sound": "off" },
+  "accessibility.signals.positionHasWarning": { "sound": "off" },
+  "accessibility.signals.taskCompleted": { "sound": "off" },
+  "accessibility.signals.taskFailed": { "sound": "off" },
+  "accessibility.signals.terminalCommandSucceeded": { "sound": "off" },
+  "accessibility.signals.terminalBell": { "sound": "off" },
+  "accessibility.signals.terminalQuickFix": { "sound": "off" },
+  "accessibility.signals.voiceRecordingStarted": { "sound": "off" },
+  "accessibility.signals.voiceRecordingStopped": { "sound": "off" },
+  "accessibility.signals.chatEditModifiedFile": { "sound": "off" },
+
+  // ----------------- terminal -----------------
+  // "terminal.integrated.fontFamily": "CaskaydiaMono NFM",
+  "terminal.integrated.fontFamily": "'Maple Mono NF CN'",
+  // 字体样式设置
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontLigatures.featureSettings": "'calt', 'cv01', 'cv03', 'cv35', 'ss01', 'ss06'",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.defaultProfile.windows": "Nushell",
+  // 集成终端使用GPU加速
+  "terminal.integrated.gpuAcceleration": "on",
+  // 集成终端右击时选择光标下方的字词，并打开上下文菜单
+  "terminal.integrated.rightClickBehavior": "selectWord",
+  "terminal.integrated.shellIntegration.enabled": true,
+  // 始终显示“新建终端”按钮旁的“终端拆分”和“终止”按钮
+  "terminal.integrated.tabs.showActions": "always",
+  // windows 终端设置
+  "powershell.integratedConsole.showOnStartup": false,
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": { "source": "PowerShell", "icon": "terminal-powershell" },
+    "Command Prompt": {
+      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Nushell": { "path": "nu.exe" }
+  },
+  "debug.onTaskErrors": "showErrors",
+  "debug.console.closeOnEnd": true,
+
+  //  ------------------------ language ----------------------------
+  // 文件类型关联
+  "files.associations": { "*.clang-format": "yaml", "*.opml": "xml" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[snippets]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  "[xml]": { "editor.defaultFormatter": "fabianlauer.vs-code-xml-format" },
+  "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
+  "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  },
+  // ----------------- markdown -----------------
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "markdown.copyFiles.destination": { "**/*": "images/${documentBaseName}/" },
+  "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
+  "markdown-preview-enhanced.revealjsTheme": "black.css",
+  "markdown-preview-enhanced.enablePreviewZenMode": false,
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  //  ------------------------ python ----------
+  "python.analysis.typeCheckingMode": "standard",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.rulers": [88], // 对标 Ruff Formatter 默认长度
+    //【可选】保存时的行为
+    // "editor.codeActionsOnSave": {
+    //   重排导入项
+    //   "source.organizeImports.ruff": "explicit"
+    // },
+    "editor.formatOnType": true
+  },
+  // --------------------- go -----------------
+  "go.inlayHints.constantValues": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.codeActionsOnSave": { "source.organizeImports": "explicit" }
+  },
+  "[go.work]": { "editor.defaultFormatter": "golang.go" },
+  "[goctl]": { "editor.defaultFormatter": "xiaoxin-technology.goctl" },
+  "[go.mod]": { "editor.defaultFormatter": "golang.go" },
+  // ----------------- ohanedan.lowlight-go-errors -----------------
+  // GO error的透明度修改
+  "lowlightgoerrors.Enabled": true,
+  "lowlightgoerrors.DefaultOpacity": "Low",
+  //  ------------------------ Git ----------------------------
+  // 自动从当前 Git 存储库的默认远程库提取提交
+  "git.autofetch": true,
+  // 同步 Git 存储库前确认
+  "git.confirmSync": false,
+  // 没有暂存的更改时，直接提交全部更改
+  "git.enableSmartCommit": true,
+  // 启用三向合并编辑器
+  "git.mergeEditor": true,
+  // 同步时使用 rebase 而非 merge
+  "git.rebaseWhenSync": true,
+
+  //  ------------------------ aaron-bond.better-comments ----------------------------
+  "better-comments.highlightPlainText": true,
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "TODO",
+      "color": "#fa973a",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "FIXME",
+      "color": "#ff0000",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "HINT",
+      "color": "#2faf64",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "NOTE",
+      "color": "#00b7e4",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "BUG",
+      "color": "#ff0000",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+
+  // ----------------- usernamehw.errorlens -----------------
+  "workbench.colorCustomizations": {
+    "errorLens.errorForeground": "#ff0000",
+    "errorLens.warningForeground": "#fa973a",
+    "errorLens.infoForeground": "#00b7e4",
+    "errorLens.hintForeground": "#2faf64"
+  },
+
+  // ----------------- vitaliymaz.vscode-svg-previewer -----------------
+  "svg.preview.boundingBox": false,
+  "svg.preview.transparencyGrid": false,
+
+  // ----------------- esbenp.prettier-vscode -----------------
+  "prettier.printWidth": 120,
+  // "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.endOfLine": "lf",
+
+  "prettier.singleQuote": false,
+  "prettier.jsxSingleQuote": false,
+  "prettier.quoteProps": "as-needed",
+  "prettier.semi": false,
+  "prettier.trailingComma": "none",
+
+  "prettier.bracketSpacing": true,
+  "prettier.bracketSameLine": false,
+  "prettier.arrowParens": "always",
+
+  "prettier.proseWrap": "preserve",
+  // "prettier.objectWrap": "preserve",
+
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.insertPragma": false,
+  "prettier.requirePragma": false,
+
+  // ----------------- silesky.toggle-boolean -----------------
+  "toggleboolean.mapping": {
+    "true": false,
+    "false": true,
+    "False": "True",
+    "True": "False",
+
+    "yes": "no",
+    "no": "yes",
+    "Yes": "No",
+    "No": "Yes",
+
+    "on": "off",
+    "off": "on",
+    "On": "Off",
+    "Off": "On",
+
+    "0": "1",
+    "1": "0"
+  },
+
+  // ----------------- VSpaceCode.whichkey -----------------
+  "whichkey.bindings": [
+    { "key": "-", "name": "水平分割", "type": "command", "command": "workbench.action.splitEditorDown" },
+    { "key": "|", "name": "垂直分割", "type": "command", "command": "workbench.action.splitEditorRight" },
+    {
+      "key": "e",
+      "name": "编辑当前文件",
+      "type": "bindings",
+      "bindings": [
+        { "key": "f", "name": "格式化", "type": "command", "command": "editor.action.formatDocument" },
+        { "key": "r", "name": "重命名变量", "type": "command", "command": "editor.action.formatDocument" }
+      ]
+    },
+    {
+      "key": "s",
+      "name": "编辑选择项",
+      "type": "bindings",
+      "bindings": [
+        { "key": "t", "name": "翻译并替换", "type": "command", "command": "commentTranslate.replaceSelections" },
+        { "key": "r", "name": "重命名符号", "type": "command", "command": "editor.action.rename" }
+      ]
+    },
+    {
+      "key": "g",
+      "name": "g...",
+      "type": "bindings",
+      "bindings": [
+        { "key": "c", "name": "Git Commit", "type": "command", "command": "extension.showGitCommit" },
+        { "key": "g", "name": "Git Graph", "type": "command", "command": "git-graph.view" },
+        {
+          "key": "e",
+          "name": "go errors 高亮",
+          "type": "bindings",
+          "bindings": [
+            { "key": "1", "name": "Lower", "type": "command", "command": "lowlightgoerrors.LowOpacity" },
+            { "key": "2", "name": "Medium", "type": "command", "command": "lowlightgoerrors.MediumOpacity" },
+            { "key": "3", "name": "High", "type": "command", "command": "lowlightgoerrors.HighOpacity" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "o",
+      "name": "打开...",
+      "type": "bindings",
+      "bindings": [
+        { "key": "e", "name": "资源管理器", "type": "command", "command": "workbench.view.explorer" },
+        { "key": "g", "name": "git源代码管理", "type": "command", "command": "workbench.view.scm" },
+        { "key": "f", "name": "搜索栏", "type": "command", "command": "workbench.view.search" },
+        { "key": "x", "name": "扩展管理", "type": "command", "command": "workbench.view.extensions" },
+        { "key": "s", "name": "设置", "type": "command", "command": "workbench.action.openSettings" },
+        { "key": "k", "name": "键盘快捷键管理", "type": "command", "command": "workbench.action.openGlobalKeybindings" }
+      ]
+    }
+  ],
+  // ----------------- vscodevim.vim -----------------
+  // todo: vim settings
+  // 改进vim性能
+  "extensions.experimental.affinity": { "vscodevim.vim": 1 },
+  "vim.vimrc.enable": true,
+  // vimrc文件配置
+  "vim.vimrc.path": "D:\\Personal\\dotfiles\\vscode\\VscodeVim.vimrc",
+  // <leader> <leader> e/s (e为当前位置之后的所有单词打标签跳转, s+<char>为指定字符打标签跳转)
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  // 启用系统粘贴板作为vim寄存器
+  "vim.useSystemClipboard": true,
+  // 由vim接管ctrl+any的按键，而不是vscode
+  "vim.useCtrlKeys": true,
+  // 突出显示与当前搜索匹配的所有文本
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.flash.enable": true,
+  "vim.digraphs": {},
+  // 忽略大小写
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  // 在折叠状态下上下移动不会自动展开(开启后光标快速移动时会出现卡顿)
+  "vim.foldfix": false,
+  // 复制行高亮
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
+  "vim.highlightedyank.textColor": "white",
+  // 智能相对行号：插入模式绝对行号，其他模式相对行号
+  "vim.smartRelativeLine": true,
+  // 目前使用rime切换输入法
+  // 自动切换输入法 im-select
+  // https://www.sixdog.top/2019/03/05/vscode-vim-%E4%BD%BF%E7%94%A8-im-select-%E5%AE%9E%E7%8E%B0%E4%B8%AD%E8%8B%B1%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2/
+  // note: 使用AutoHotkey切换输入法 https://www.bilibili.com/video/BV17W4y1W7eM/
+  // note: surround_input时也会切换输入法
+  // "vim.autoSwitchInputMethod.enable": true,
+  // "vim.autoSwitchInputMethod.defaultIM": "1033",
+  // "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\Software\\im-select.exe",
+  // "vim.autoSwitchInputMethod.switchIMCmd": "D:\\Software\\im-select.exe {im}",
+  /* 
+			  note: 
+			  gcc: 行注释
+			  gCC: 块注释
+			  gd: 跳转至定义(函数内)，配合返回 <alt+方向键> 来回跳转
+			  gD: 跳转至定义(文件内)，配合返回 <alt+方向键> 来回跳转
+		  */
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // 更换为 i j k l 为 上 左 下 右
+    { "before": ["i"], "after": ["k"] },
+    { "before": ["k"], "after": ["j"] },
+    { "before": ["j"], "after": ["h"] },
+    { "before": ["J"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["I"], "after": ["5", "k"] },
+    { "before": ["K"], "after": ["5", "j"] },
+    // h选中后续字符中间的内容, a选中后续字符及中间内容(就像"abc",h会选择abc,a会选择"abc")
+    // 光标到屏幕上方(移动屏幕)
+    { "before": ["z", "i"], "after": ["z", "t"] },
+    // 光标到屏幕下方(移动屏幕)
+    { "before": ["z", "k"], "after": ["z", "b"] },
+    // 切换折叠
+    { "before": ["z", "f"], "commands": ["editor.toggleFold"], "silent": true },
+    // h插入模式
+    { "before": ["h"], "after": ["i"] },
+    // H行首插入模式(不含空白字符)
+    { "before": ["H"], "after": ["I"] },
+    // undo
+    { "before": ["u"], "commands": ["undo"] },
+    // redo
+    { "before": ["<C-r>"], "commands": ["redo"] },
+    // tab切换(gt/gT)
+    { "before": ["<C-j>"], "commands": [":tabprev"], "silent": true },
+    { "before": ["<C-l>"], "commands": [":tabnext"], "silent": true },
+    // 上一个/下一个问题
+    { "before": ["g", "["], "commands": ["editor.action.marker.prevInFiles"] },
+    { "before": ["g", "]"], "commands": ["editor.action.marker.nextInFiles"] },
+    // 取消搜索高亮
+    { "before": ["<leader>", "n"], "commands": [":nohl"] },
+    // whichkey
+    { "before": [":"], "commands": ["whichkey.show"], "silent": true },
+    // 合并行
+    { "before": ["Q"], "commands": ["editor.action.joinLines"], "silent": true },
+    // 绑定<leader>w保存当前文件：
+    { "before": ["<leader>", "w"], "commands": ["workbench.action.files.save"], "silent": true },
+    // toggle boolean
+    { "before": ["<leader>", "b"], "commands": ["extension.toggleBool"], "silent": true },
+    // 打开命令面板
+    { "before": ["<leader>", "o", "p"], "commands": ["workbench.action.showCommands"], "silent": true },
+    // 打开面板
+    { "before": ["<leader>", "o", "f"], "commands": ["workbench.action.quickOpen"], "silent": true },
+    // 向下复制行(或shift+alt+↓)(shift+alt+ctrl+↓向下添加光标)
+    { "before": ["<leader>", "c", "k"], "commands": ["editor.action.copyLinesDownAction"], "silent": true },
+    // 向上复制行(或shift+alt+↑)(shift+alt+ctrl+↑向上添加光标)
+    { "before": ["<leader>", "c", "i"], "commands": ["editor.action.copyLinesUpAction"], "silent": true },
+    // code runner
+    { "before": ["<leader>", "c", "r"], "commands": ["code-runner.run"], "silent": true },
+    // format document 格式化
+    { "before": ["<leader>", "f", "d"], "commands": ["editor.action.formatDocument"], "silent": true },
+    // rename 重命名变量
+    { "before": ["<leader>", "r", "n"], "commands": ["editor.action.rename"], "silent": true },
+    // 跳转到上一个错误
+    { "before": ["<leader>", "g", "i"], "commands": ["editor.action.marker.prev"], "silent": true },
+    // 跳转到下一个错误
+    { "before": ["<leader>", "g", "k"], "commands": ["editor.action.marker.next"], "silent": true },
+    // 左移tab
+    { "before": ["<leader>", "<", "<"], "commands": ["workbench.action.moveEditorLeftInGroup"], "silent": true },
+    // 右移tab
+    { "before": ["<leader>", ">", ">"], "commands": ["workbench.action.moveEditorRightInGroup"], "silent": true },
+    // 不要将删除内容放入剪贴板
+    { "before": ["<delete>"], "after": ["\"", "_", "delete"] }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // 更换为 i j k l 为 上 左 下 右
+    { "before": ["i"], "after": ["k"] },
+    { "before": ["k"], "after": ["j"] },
+    { "before": ["j"], "after": ["h"] },
+    { "before": ["J"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["I"], "after": ["5", "k"] },
+    { "before": ["K"], "after": ["5", "j"] },
+    { "before": ["h"], "after": ["i"] },
+    // A光标尾插入模式, H光标前插入模式
+    { "before": ["H"], "after": ["I"] },
+    // 可视模式下缩进
+    { "before": [">"], "commands": ["editor.action.indentLines"], "silent": true },
+    { "before": ["<"], "commands": ["editor.action.outdentLines"], "silent": true },
+    // tab切换(gt/gT)
+    { "before": ["<C-j>"], "commands": [":tabprev"], "silent": true },
+    { "before": ["<C-l>"], "commands": [":tabnext"], "silent": true },
+    // 上一个/下一个问题
+    { "before": ["g", "["], "commands": ["editor.action.marker.prevInFiles"] },
+    { "before": ["g", "]"], "commands": ["editor.action.marker.nextInFiles"] },
+    // 取消搜索高亮
+    { "before": ["<leader>", "n"], "commands": [":nohl"] },
+    // 显示命令面板(:或<leader>of)，并且不在状态栏上显示消息：
+    // { "before": [":"], "commands": ["workbench.action.showCommands"], "silent": true },
+    // h选中后续字符中间的内容, a选中后续字符及中间内容(就像"abc",h会选择abc,a会选择"abc")
+    // 光标到屏幕上方(移动屏幕)
+    { "before": ["z", "i"], "after": ["z", "t"] },
+    // 光标到屏幕下方(移动屏幕)
+    { "before": ["z", "k"], "after": ["z", "b"] },
+    // 显示悬停
+    { "before": ["g", "h"], "commands": ["editor.action.showHover"], "silent": true },
+    // whichkey
+    { "before": [":"], "commands": ["whichkey.show"], "silent": true },
+    // 合并行
+    { "before": ["Q"], "commands": ["editor.action.joinLines"], "silent": true },
+    // 向下复制行
+    { "before": ["<leader>", "c", "k"], "commands": ["editor.action.copyLinesDownAction"], "silent": true },
+    // 向上复制行
+    { "before": ["<leader>", "c", "i"], "commands": ["editor.action.copyLinesUpAction"], "silent": true },
+    // 不要将删除内容放入剪贴板
+    { "before": ["delete"], "after": ["\"", "_", "delete"] }
+  ],
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    // 更换为 i j k l 为 上 左 下 右
+    { "before": ["i"], "after": ["k"] },
+    { "before": ["k"], "after": ["j"] },
+    { "before": ["j"], "after": ["h"] },
+    { "before": ["J"], "after": ["^"] },
+    { "before": ["L"], "after": ["$"] },
+    { "before": ["h"], "after": ["i"] },
+    // 不要将删除内容放入剪贴板
+    { "before": ["delete"], "after": ["\"", "_", "delete"] }
+  ],
+  "vim.normalModeKeyBindings": [],
+  "vim.visualModeKeyBindings": [],
+  // 下面定义的按键将交由vscode进行处理，而不是vscode-vim插件
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-b>": false,
+    "<C-c>": false,
+    "<C-d>": false,
+    "<C-f>": false,
+    "<C-v>": false,
+    "<C-u>": false,
+    "<C-k>": false,
+    "<C-o>": false,
+    "<C-x>": false,
+    // ctrl+p或<leader>of 打开面板(无字符)
+    // ctrl+Q进入块选择模式
+    // 面板操作:
+    // 0. 无 打开文件
+    // 1. > 命令vscode-office
+    // 2. % 全局内容搜索
+    // 3. @ 大纲跳转(当前文件 变量、函数 间的跳转)
+    // 4. : 行号跳转(设置相对行号时仍然会仍然会显示绝对行号)
+    // 5. # 符号搜索(function等)
+    "<C-p>": false,
+    // 统一关闭当前窗口接口
+    "<C-w>": false
+  },
+  // ----------------- cweijan.dbclient-jdbc -----------------
+  "database-client.autoSync": true,
+  // unchecked
+  "projectManager.sortList": "Recent",
+  "remote.SSH.configFile": "C:\\Users\\ca\\.ssh\\config",
+  "fittencode.languagePreference.displayPreference": "zh-cn",
+  "fittencode.languagePreference.commentPreference": "zh-cn"
+}

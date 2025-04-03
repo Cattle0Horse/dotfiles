@@ -1,0 +1,66 @@
+// 注意，为了允许注释这是jsonc文件，prettier不会识别该文件，如果需要使用，应该删除注释，并修改文件名
+// https://prettier.io/docs/options#arrow-function-parentheses
+{
+  // 基础代码风格 (缩进、空格、括号)
+  "printWidth": 80, // 每行最大字符数（默认 80）
+  "tabWidth": 2, // 缩进宽度（2 个空格）
+  "useTabs": false, // 是否使用 Tab 缩进（false：使用空格）
+  "endOfLine": "lf", // 统一换行符为 Unix 格式（LF）
+
+  // 引号与分号设置
+  "singleQuote": false, // 使用单引号（true）代替双引号
+  "jsxSingleQuote": false, // 在 JSX 中强制使用单引号
+  "quoteProps": "as-needed", // 对象属性名引号规则（as-needed：仅必要时加引号；consistent: 如果对象中的至少一个属性需要引号，则为所有属性添加引号；preserve: 尊重输入中对象属性的引号使用方式）
+  "semi": false, // 是否添加分号（false：仅在可能导致 ASI 失败的行开头添加分号）
+  "trailingComma": "none", // 在多行逗号分隔的语法结构中，尽可能尾随逗号（all: 尽可能使用尾随逗号（包括函数参数和调用）；es5: ES5 中有效位置的尾随逗号（对象、数组等）；none: 不使用尾随逗号）
+
+  // 括号与箭头函数格式
+  "bracketSpacing": true, // 对象括号内是否添加空格（如 { foo: bar } vs {foo: bar}）
+  "bracketSameLine": false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素的 > 放置在最后一行末尾，而不是单独放在下一行（不适用于自闭合元素）。
+  "arrowParens": "always", // (x) => x 箭头函数参数括号（always：总加括号，avoid：参数单一时不加）
+
+  // 换行控制
+  "proseWrap": "preserve", // Markdown/JSON 字符串文本换行规则（preserve：不进行任何操作；always：如果段落超过打印宽度，则换行；never: 将每个段落块拆分成一行）
+  "objectWrap": "preserve", // 如何在对象字面量可以单行显示或跨多行显示时进行包裹（preserve: 如果开括号和第一个属性之间有换行符，则保持多行格式，collapse: 尽可能单行显示）
+
+  "htmlWhitespaceSensitivity": "css", // HTML 中的空格敏感度（css：尊重 CSS display 属性的默认值；strict：认为所有标签周围的空格很重要；ignore：认为所有标签周围的空格不重要）
+  "vueIndentScriptAndStyle": false, // Vue 文件中 <script>/<style> 内容是否缩进（false：不缩进）
+  "embeddedLanguageFormatting": "auto", // 嵌入式语言（如模板字符串中的 HTML/JSX）格式化规则（auto: 如果 Prettier 可以自动识别它，则格式化嵌入的代码；off: 从不自动格式化嵌入的代码）
+
+  "insertPragma": false, // 是否在文件顶部自动插入 @prettier 注释（false：不插入）
+  "requirePragma": false, // 是否需要 @prettier 注释来触发格式化（false：不需要）
+
+  // 覆盖配置（针对特定文件类型）
+  "overrides": [
+    // windows 需要的换行符
+    {
+      "files": ["*.cmd", "*.bat"],
+      "options": { "endOfLine": "crlf" }
+    }
+    // 当显示器对单个换行符不敏感时，可以选择的设置
+    // {
+    //   "files": "*.md",
+    //   "options": {
+    //     "proseWrap": "always",
+    //     "printWidth": 140
+    //   }
+    // },
+
+    // {
+    //   "files": ["*.html", "*.vue"],
+    //   "options": {
+    //     "htmlWhitespaceSensitivity": "ignore" // HTML/Vue 文件保留原始空格（如排版空格）
+    //   }
+    // },
+  ]
+
+  // "filepath": "", // 指定文件名以推断使用哪个解析器, 该选项仅在 CLI 和 API 中有用。在配置文件中使用它没有意义
+  // "rangeStart": 0, // 格式化范围开始位置（从开头开始）
+  // "rangeEnd": null, // 格式化范围结束位置（null：表示不限制）
+  // "parser": "", // 指定解析器（如markdown, css, jsonc 等）
+  // "plugins": [], // 额外插件列表
+
+  // "cursorOffset": -1, // 光标偏移量（-1：关闭该功能）
+  // "experimentalOperatorPosition": "end", // 操作符位置（end：放在下一行，start：放在上一行）
+  // "experimentalTernaries": false // 三元表达式格式（false：关闭，true：旧版格式）
+}
