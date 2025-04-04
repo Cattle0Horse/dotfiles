@@ -258,6 +258,10 @@
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
   //  ------------------------ python ----------
   "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.inlayHints.callArgumentNames": "off",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.rulers": [88], // 对标 Ruff Formatter 默认长度
