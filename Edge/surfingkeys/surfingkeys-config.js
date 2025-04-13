@@ -2,89 +2,147 @@
 // 按Alt-s可以在当前站点开关Surfingkeys。当Surfingkeys处于关闭状态时，除了热键，其它所有按键映射都停止工作。
 // 搜索快捷字约定(双键)
 /*
-    百度 = bd
-    必应 = by
-    哔哩哔哩 = bb
-    Google = gg (由于最常用, 额外添加s作为短快捷字)
-    Genspark = gs
-    Github = gh
-    Luxrity = lx
+  百度 = bd
+  必应 = by
+  哔哩哔哩 = bb
+  Google = gg (由于最常用, 额外添加s作为短快捷字)
+  Genspark = gs
+  Github = gh
+  Luxrity = lx
+  Kimi = km
+  ChatGPT = cg
 */
 // s+搜索快捷字: 搜索选中文本(或若未选中则为剪贴板)
 // so+搜索快捷字: 添加site:当前域名约束 (o表示only_this_site_key)
-// o+搜索快捷字: 打开指定搜索栏 
+// o+搜索快捷字: 打开指定搜索栏
 // m前缀导航, 可快速打开指定地址
 
 // https://github.com/brookhong/Surfingkeys/blob/master/docs/API.md
-const { aceVimMap, mapkey, vmapkey, imapkey, map, unmap, unmapAllExcept, imap, iunmap, cmap, vmap, vunmap, getClickableElements, addSearchAlias, removeSearchAlias, tabOpenLink, readText, Clipboard, Front, Hints, Visual, RUNTIME } = api;
+const {
+  aceVimMap,
+  mapkey,
+  vmapkey,
+  imapkey,
+  map,
+  unmap,
+  unmapAllExcept,
+  imap,
+  iunmap,
+  cmap,
+  vmap,
+  vunmap,
+  getClickableElements,
+  addSearchAlias,
+  removeSearchAlias,
+  tabOpenLink,
+  readText,
+  Clipboard,
+  Front,
+  Hints,
+  Visual,
+  RUNTIME
+} = api
 
 //历史记录搜索，不使用默认的按使用次数排序
-settings.historyMUOrder = false;
+settings.historyMUOrder = false
 
 // 移除与浏览器的冲突 查看下载历史，历史记录
-unmap("<Ctrl-j>");
-iunmap("<Ctrl-j>");
-vunmap("<Ctrl-j>");
-unmap("<Ctrl-h>");
-iunmap("<Ctrl-h>");
-vunmap("<Ctrl-h>");
+unmap("<Ctrl-j>")
+iunmap("<Ctrl-j>")
+vunmap("<Ctrl-j>")
+unmap("<Ctrl-h>")
+iunmap("<Ctrl-h>")
+vunmap("<Ctrl-h>")
 
 // 选择输入框
-map("h", "i");
+map("h", "i")
 // 上下滚动目标
-map("i", "k");
-map("k", "j");
+map("i", "k")
+map("k", "j")
 
 // 可视模式下上下左右
-vmap("i", "k");
-vmap("k", "j");
-vmap("j", "h");
-vunmap("h");
-vmap("J", "0");
-vmap("L", "$");
-vunmap("0");
-vunmap("$");
+vmap("i", "k")
+vmap("k", "j")
+vmap("j", "h")
+vunmap("h")
+vmap("J", "0")
+vmap("L", "$")
+vunmap("0")
+vunmap("$")
 // 光标置于屏幕顶部/底部
-vmap("zi", "zt");
-vmap("zk", "zb");
-vunmap("zt");
-vunmap("zb");
+vmap("zi", "zt")
+vmap("zk", "zb")
+vunmap("zt")
+vunmap("zb")
 
-
-map("J", "S"); // 历史后退
-map("L", "D"); // 历史前进
+map("J", "S") // 历史后退
+map("L", "D") // 历史前进
 // 使用垂直标签页
-map("I", "E"); // 跳到上个标签页
-map("K", "R"); // 跳到下个标签页
+map("I", "E") // 跳到上个标签页
+map("K", "R") // 跳到下个标签页
 
-map("zk", "zo"); // 缩小页面
+map("zk", "zo") // 缩小页面
 
 // 移除一些不需要的快捷键
 const unmaplist = [
-    // 鼠标点击
-    "gi", "gf", "<Ctrl-i>",
-    // 滚动页面/元素
-    "0", "U", "P", "j", "l", "$", "u",
-    // 标签页
-    "E", "R", "<Alt-p>", "gx0", "gxt", "gxT", "gx$", "gxp", "zo",
-    // 网页浏览
-    "gt", "gT", "B", "F", "<Ctrl-6>", "S", "D",
-    // 会话(没用过)
-    "ZZ", "ZR",
-    // todo: 剪贴板
-    // 搜索栏
-    "om",
-    // 类VIM标签
-    "'", "<Ctrl-'>",
-    // 设置
-    ";v",
-    // Chrome内置功能(删除的是不存在于edge中的设置)
-    "gc", "gk",
-    // 代理
-    "cp", ";pa", ";pb", ";pd", ";ps", ";pc", ";cp", ";ap"
-];
+  // 鼠标点击
+  "gi",
+  "gf",
+  "<Ctrl-i>",
+  // 滚动页面/元素
+  "0",
+  "U",
+  "P",
+  "j",
+  "l",
+  "$",
+  "u",
+  // 标签页
+  "E",
+  "R",
+  "<Alt-p>",
+  "gx0",
+  "gxt",
+  "gxT",
+  "gx$",
+  "gxp",
+  "zo",
+  // 网页浏览
+  "gt",
+  "gT",
+  "B",
+  "F",
+  "<Ctrl-6>",
+  "S",
+  "D",
+  // 会话(没用过)
+  "ZZ",
+  "ZR",
+  // todo: 剪贴板
+  // 搜索栏
+  "om",
+  // 类VIM标签
+  "'",
+  "<Ctrl-'>",
+  // 设置
+  ";v",
+  // Chrome内置功能(删除的是不存在于edge中的设置)
+  "gc",
+  "gk",
+  // 代理
+  "cp",
+  ";pa",
+  ";pb",
+  ";pd",
+  ";ps",
+  ";pc",
+  ";cp",
+  ";ap"
+]
 
-unmaplist.forEach((u) => { unmap(u); });
+unmaplist.forEach((u) => {
+  unmap(u)
+})
 
 // todo: Omnibar 热键无法移除
 // const cunmaplist = ["<Ctrl-d>", "<Ctrl-i>", "<Ctrl-j>", "<Ctrl-.>", "<Ctrl-,>"];
@@ -92,168 +150,187 @@ unmaplist.forEach((u) => { unmap(u); });
 
 //===================== 搜索快捷字 ================== start
 // 移除内置的搜索快捷字
-const removeSearchAliasList = ["g", "d", "b", "e", "w", "s", "h", "y"];
-removeSearchAliasList.forEach((u) => { removeSearchAlias(u); });
+const removeSearchAliasList = ["g", "d", "b", "e", "w", "s", "h", "y"]
+removeSearchAliasList.forEach((u) => {
+  removeSearchAlias(u)
+})
 // 新增搜索快捷字
 // https://github.com/brookhong/Surfingkeys/blob/master/docs/API.md#addsearchalias
 var searchAliasList = [
-    {
-        alias: "bd",
-        prompt: "百度",
-        search_url: "https://www.baidu.com/s?wd=",
-        search_leader_key: "s",
-        favicon_url: "https://www.baidu.com/favicon.ico",
-    },
-    {
-        alias: "by",
-        prompt: "必应",
-        search_url: "https://www.bing.com/search?q=",
-        search_leader_key: "s",
-        favicon_url: "https://www.bing.com/favicon.ico",
-    },
-    {
-        alias: "bb",
-        prompt: "哔哩哔哩",
-        search_url: "https://search.bilibili.com/all?keyword=",
-        search_leader_key: "s",
-        favicon_url: "https://www.bilibili.com/favicon.ico",
-    },
-    {
-        alias: "gg",
-        prompt: "Google",
-        search_url: "https://www.google.com/search?q=",
-        search_leader_key: "s",
-        favicon_url: "https://www.google.com/favicon.ico",
-    },
-    {
-        alias: "s",
-        prompt: "Google",
-        search_url: "https://www.google.com/search?q=",
-        search_leader_key: "s",
-        favicon_url: "https://www.google.com/favicon.ico",
-    },
-    {
-        alias: "gs",
-        prompt: "Genspark",
-        search_url: "https://genspark.com/search?query=",
-        search_leader_key: "s",
-        favicon_url: "https://www.genspark.com/favicon.ico",
-    },
-    {
-        alias: "gh",
-        prompt: "Github",
-        search_url: "https://github.com/search?q=",
-        search_leader_key: "s",
-        favicon_url: "https://www.github.com/favicon.ico",
-    },
-    {
-        alias: "lx",
-        prompt: "Luxrity",
-        search_url: "https://search.luxirty.com/search?q=",
-        search_leader_key: "s",
-        favicon_url: "https://search.luxirty.com/favicon.ico",
-    }
-];
+  {
+    alias: "bd",
+    prompt: "百度",
+    search_url: "https://www.baidu.com/s?wd=",
+    search_leader_key: "s",
+    favicon_url: "https://www.baidu.com/favicon.ico"
+  },
+  {
+    alias: "by",
+    prompt: "必应",
+    search_url: "https://www.bing.com/search?q=",
+    search_leader_key: "s",
+    favicon_url: "https://www.bing.com/favicon.ico"
+  },
+  {
+    alias: "bb",
+    prompt: "哔哩哔哩",
+    search_url: "https://search.bilibili.com/all?keyword=",
+    search_leader_key: "s",
+    favicon_url: "https://www.bilibili.com/favicon.ico"
+  },
+  {
+    alias: "gg",
+    prompt: "Google",
+    search_url: "https://www.google.com/search?q=",
+    search_leader_key: "s",
+    favicon_url: "https://www.google.com/favicon.ico"
+  },
+  {
+    alias: "s",
+    prompt: "Google",
+    search_url: "https://www.google.com/search?q=",
+    search_leader_key: "s",
+    favicon_url: "https://www.google.com/favicon.ico"
+  },
+  {
+    alias: "gs",
+    prompt: "Genspark",
+    search_url: "https://genspark.com/search?query=",
+    search_leader_key: "s",
+    favicon_url: "https://www.genspark.com/favicon.ico"
+  },
+  {
+    alias: "gh",
+    prompt: "Github",
+    search_url: "https://github.com/search?q=",
+    search_leader_key: "s",
+    favicon_url: "https://www.github.com/favicon.ico"
+  },
+  {
+    alias: "lx",
+    prompt: "Luxrity",
+    search_url: "https://search.luxirty.com/search?q=",
+    search_leader_key: "s",
+    favicon_url: "https://search.luxirty.com/favicon.ico"
+  }
+]
 // 暂时均使用 https://duckduckgo.com/ac/?q= 作为搜索建议
 default_suggestion_url = "https://duckduckgo.com/ac/?q="
-default_callback_to_parse_suggestion = function(response) {
-    var res = JSON.parse(response.text);
-    return res.map(function(r){
-        return r.phrase;
-    });
+default_callback_to_parse_suggestion = function (response) {
+  var res = JSON.parse(response.text)
+  return res.map(function (r) {
+    return r.phrase
+  })
 }
-searchAliasList = searchAliasList.map(item => ({
-    ...item,
-    suggestion_url: default_suggestion_url,
-    callback_to_parse_suggestion: default_callback_to_parse_suggestion,
-    only_this_site_key: 'o'
-}));
-searchAliasList.forEach((u) => { addSearchAlias(u.alias, u.prompt, u.search_url, u.search_leader_key, u.suggestion_url, u.callback_to_parse_suggestion, u.only_this_site_key, u.favicon_url); });
+searchAliasList = searchAliasList.map((item) => ({
+  ...item,
+  suggestion_url: default_suggestion_url,
+  callback_to_parse_suggestion: default_callback_to_parse_suggestion,
+  only_this_site_key: "o"
+}))
+searchAliasList.forEach((u) => {
+  addSearchAlias(
+    u.alias,
+    u.prompt,
+    u.search_url,
+    u.search_leader_key,
+    u.suggestion_url,
+    u.callback_to_parse_suggestion,
+    u.only_this_site_key,
+    u.favicon_url
+  )
+})
 //===================== 搜索快捷字 ================== end
 
 //=====================faster web index 充当网页导航的功能================== start
 var webShortNameConfig = [
-    {
-        shortName: "bb",
-        siteName: "Bilibili",
-        url: "https://www.bilibili.com/",
-    },
-    {
-        shortName: "gh",
-        siteName: "Github",
-        url: "https://github.com/",
-    },
-    {
-        shortName: "yt",
-        siteName: "Youtube",
-        url: "https://www.youtube.com/",
-    },
-    {
-        shortName: "lc",
-        siteName: "Leetcode",
-        url: "https://leetcode.cn/problemset/",
-    },
-    {
-        shortName: "gm",
-        siteName: "Gmail",
-        url: "https://mail.google.com/mail/u/0/#inbox",
-    },
-    {
-        shortName: "ol",
-        siteName: "Outlook",
-        url: "https://outlook.live.com/mail/0/",
-    }
-];
+  {
+    shortName: "bb",
+    siteName: "Bilibili",
+    url: "https://www.bilibili.com/"
+  },
+  {
+    shortName: "gh",
+    siteName: "Github",
+    url: "https://github.com/"
+  },
+  {
+    shortName: "yt",
+    siteName: "Youtube",
+    url: "https://www.youtube.com/"
+  },
+  {
+    shortName: "lc",
+    siteName: "Leetcode",
+    url: "https://leetcode.cn/problemset/"
+  },
+  {
+    shortName: "gm",
+    siteName: "Gmail",
+    url: "https://mail.google.com/mail/u/0/#inbox"
+  },
+  {
+    shortName: "ol",
+    siteName: "Outlook",
+    url: "https://outlook.live.com/mail/0/"
+  },
+  {
+    shortName: "km",
+    siteName: "Kimi",
+    url: "https://kimi.moonshot.cn/"
+  },
+  {
+    shortName: "cg",
+    siteName: "ChatGPT",
+    url: "https://chatgpt.com/"
+  }
+]
 
-var webIndexPrefix = "m";
-unmap(webIndexPrefix);
+var webIndexPrefix = "m"
+unmap(webIndexPrefix)
 
 function bindMapKeyForWebIndex() {
-    for (var i = webShortNameConfig.length - 1; i >= 0; i--) {
-        let webIndexConfig = webShortNameConfig[i];
-        mapkey(
-            webIndexPrefix + webIndexConfig.shortName,
-            "跳转到-> " + webIndexConfig.siteName,
-            () => tabOpenLink(webIndexConfig.url)
-        );
-    }
+  for (var i = webShortNameConfig.length - 1; i >= 0; i--) {
+    let webIndexConfig = webShortNameConfig[i]
+    mapkey(webIndexPrefix + webIndexConfig.shortName, "跳转到-> " + webIndexConfig.siteName, () =>
+      tabOpenLink(webIndexConfig.url)
+    )
+  }
 }
 
-bindMapKeyForWebIndex();
+bindMapKeyForWebIndex()
 //=====================faster web index ================== end
 
 // 内联翻译查询
 // 可视模式下q查询光标下的单词
 // 正常模式或可视模式下Q窗口输出查询
 Front.registerInlineQuery({
-    url: function (q) {
-        return `http://dict.youdao.com/w/eng/${q}/#keyfrom=dict2.index`;
-    },
-    parseResult: function (res) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(res.text, "text/html");
-        var collinsResult = doc.querySelector("#collinsResult");
-        var authTransToggle = doc.querySelector("#authTransToggle");
-        var examplesToggle = doc.querySelector("#examplesToggle");
-        if (collinsResult) {
-            collinsResult.querySelectorAll("div>span.collinsOrder").forEach(function (span) {
-                span.nextElementSibling.prepend(span);
-            });
-            collinsResult.querySelectorAll("div.examples").forEach(function (div) {
-                div.innerHTML = div.innerHTML
-                    .replace(/<p/gi, "<span")
-                    .replace(/<\/p>/gi, "</span>");
-            });
-            var exp = collinsResult.innerHTML;
-            return exp;
-        } else if (authTransToggle) {
-            authTransToggle.querySelector("div.via.ar").remove();
-            return authTransToggle.innerHTML;
-        } else if (examplesToggle) {
-            return examplesToggle.innerHTML;
-        }
-    },
-});
+  url: function (q) {
+    return `http://dict.youdao.com/w/eng/${q}/#keyfrom=dict2.index`
+  },
+  parseResult: function (res) {
+    var parser = new DOMParser()
+    var doc = parser.parseFromString(res.text, "text/html")
+    var collinsResult = doc.querySelector("#collinsResult")
+    var authTransToggle = doc.querySelector("#authTransToggle")
+    var examplesToggle = doc.querySelector("#examplesToggle")
+    if (collinsResult) {
+      collinsResult.querySelectorAll("div>span.collinsOrder").forEach(function (span) {
+        span.nextElementSibling.prepend(span)
+      })
+      collinsResult.querySelectorAll("div.examples").forEach(function (div) {
+        div.innerHTML = div.innerHTML.replace(/<p/gi, "<span").replace(/<\/p>/gi, "</span>")
+      })
+      var exp = collinsResult.innerHTML
+      return exp
+    } else if (authTransToggle) {
+      authTransToggle.querySelector("div.via.ar").remove()
+      return authTransToggle.innerHTML
+    } else if (examplesToggle) {
+      return examplesToggle.innerHTML
+    }
+  }
+})
 
 // name: Rosé Pine
 // author: thuanowa
@@ -688,4 +765,4 @@ settings.theme = `
       padding: 0.2rem;
     }
   }
-`;
+`
