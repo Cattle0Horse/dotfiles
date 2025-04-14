@@ -1036,7 +1036,7 @@
           {
             "windowGroupID": 0,
             "actionTypeID": 8,
-            "comment": "如果 QQ.exe 进程存在则输入 Ctrl+Alt+z 热键激活微信，否则启动微信",
+            "comment": "如果 QQ.exe 进程存在则输入 Ctrl+Alt+z 热键激活 QQ，否则启动 QQ",
             "ahkCode": "ProcessExistSendKeyOrRun(\"QQ.exe\", \"^!z\", \"shortcuts\\QQ.lnk\")"
           }
         ],
