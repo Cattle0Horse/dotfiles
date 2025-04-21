@@ -1,24 +1,49 @@
 [
+  // 终端相关
+  // 当聚焦非编辑器终端，按下ctrl+w时，关闭当前终端
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // todo: 不生效
+  // 使用默认配置新建终端
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    // "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 可选择个人配置新建终端
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.terminal.newWithProfile",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 上一个终端
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 下一个终端
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
   // 视觉行移动
   {
     "key": "up",
     "command": "cursorMove",
-    "args": {
-      "to": "up",
-      "by": "wrappedLine",
-      "value": 1
-    },
+    "args": { "to": "up", "by": "wrappedLine", "value": 1 },
     "when": "editorTextFocus && !suggestWidgetVisible"
   },
   // 视觉行移动
   {
     "key": "down",
     "command": "cursorMove",
-    "args": {
-      "to": "down",
-      "by": "wrappedLine",
-      "value": 1
-    },
+    "args": { "to": "down", "by": "wrappedLine", "value": 1 },
     "when": "editorTextFocus && !suggestWidgetVisible"
   },
   // 向下复制
@@ -100,7 +125,7 @@
   },
   // 复制文件
   {
-    "key": "c",
+    "key": "y",
     "command": "filesExplorer.copy",
     "when": "filesExplorerFocus && !inputFocus"
   },
@@ -144,7 +169,7 @@
   {
     "key": "alt+b",
     "command": "extension.toggleBool",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && !editorReadonly"
   },
   // zen 模式
   {
@@ -154,14 +179,11 @@
   },
   // 打开当前指向的链接
   {
-    "key": "alt+enter",
-    "command": "editor.action.openLink"
-  },
-  {
     "key": "shift+enter",
-    "command": "editor.action.openLink"
+    "command": "editor.action.openLink",
+    // 光标在编辑器内、当前光标位置可提供链接、代码补全面板未打开、查找面板未打开、终端未获焦点
+    "when": "editorFocus && !suggestWidgetVisible && editorHasLinkProvider && !findWidgetVisible && !terminalFocus"
   },
-  // toggle主侧栏
   {
     "key": "ctrl+u",
     "command": "workbench.action.toggleSidebarVisibility"

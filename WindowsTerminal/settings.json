@@ -1,69 +1,49 @@
 {
+  // note: 在使用时你应该删除注释
+  // https://learn.microsoft.com/zh-cn/windows/terminal/customize-settings/appearance
+  // 拆分窗格 Terminal.DuplicatePaneAuto（自动规划拆分方向）
+  //          Terminal.DuplicatePaneDown （向下拆分）
+  // 广播输入 Terminal.ToggleBroadcastInput
+  // 交换窗格 Terminal.SwapPaneDown （下）
+  // 缩放窗格 Terminal.TogglePaneZoom （alt+n）
+  // 聚焦/专注模式（无标签页） Terminal.ToggleFocusMode （alt+m）
+  // 调整窗格大小 Terminal.ResizePaneDown （alt+shift+down）
+  // 重启窗格 Terminal.RestartConnection （F5）
+  // 关闭窗格 Terminal.ClosePane （ctrl+w）
+  // 显示建议 showSuggestions <https://learn.microsoft.com/zh-cn/windows/terminal/customize-settings/actions#suggestions>
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "actions": [],
+  "alwaysShowTabs": false,
+  "autoHideWindow": false,
+  "centerOnLaunch": true,
   "copyFormatting": "none",
   "copyOnSelect": false,
+  "showTabsInTitlebar": true,
+  "tabSwitcherMode": "disabled",
+  "launchMode": "maximizedFocus",
+  "disableAnimations": true, // 取消动画
   "defaultProfile": "{47302f9c-1ac4-566c-aa3e-8cf29889d6ab}",
+  "actions": [],
   "keybindings": [
-    {
-      "id": "Terminal.PasteFromClipboard",
-      "keys": "ctrl+v"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+f"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+w"
-    },
-    {
-      "id": "Terminal.CopyToClipboard",
-      "keys": "ctrl+c"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+tab"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+tab"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+shift+t"
-    },
-    {
-      "id": "Terminal.OpenNewTab",
-      "keys": "ctrl+n"
-    },
-    {
-      "id": "Terminal.FindText",
-      "keys": "ctrl+f"
-    },
-    {
-      "id": "Terminal.DuplicatePaneAuto",
-      "keys": "alt+shift+d"
-    },
-    {
-      "id": "Terminal.ClosePane",
-      "keys": "ctrl+w"
-    },
-    {
-      "id": "Terminal.PrevTab",
-      "keys": "ctrl+j"
-    },
-    {
-      "id": "Terminal.NextTab",
-      "keys": "ctrl+l"
-    }
+    { "id": null, "keys": "ctrl+shift+w" },
+    { "id": null, "keys": "ctrl+shift+f" },
+    { "id": null, "keys": "ctrl+tab" },
+    { "id": null, "keys": "ctrl+shift+tab" },
+    { "id": null, "keys": "ctrl+shift+t" },
+    { "id": null, "keys": "ctrl+0" },
+    { "id": null, "keys": "ctrl+numpad0" },
+    { "id": null, "keys": "win+sc(41)" },
+    { "id": "Terminal.PasteFromClipboard", "keys": "ctrl+v" },
+    { "id": "Terminal.CopyToClipboard", "keys": "ctrl+c" },
+    { "id": "Terminal.OpenNewTab", "keys": "ctrl+n" },
+    { "id": "Terminal.FindText", "keys": "ctrl+f" },
+    { "id": "Terminal.DuplicatePaneAuto", "keys": "alt+shift+d" },
+    { "id": "Terminal.ClosePane", "keys": "ctrl+w" },
+    { "id": "Terminal.PrevTab", "keys": "ctrl+j" },
+    { "id": "Terminal.NextTab", "keys": "ctrl+l" },
+    { "id": "Terminal.ToggleFocusMode", "keys": "alt+m" }
   ],
-  "newTabMenu": [
-    {
-      "type": "remainingProfiles"
-    }
-  ],
+  "newTabMenu": [{ "type": "remainingProfiles" }],
   "profiles": {
     "defaults": {
       "bellStyle": "none",
@@ -71,22 +51,16 @@
       "experimental.rightClickContextMenu": true,
       "font": {
         "face": "Maple Mono NF CN",
-        "features": {
-          "calt": 1,
-          "cv01": 1,
-          "cv03": 1,
-          "cv35": 1,
-          "ss01": 1,
-          "ss06": 1
-        }
+        "features": { "calt": 1, "cv01": 1, "cv03": 1, "cv35": 1, "ss01": 1, "ss06": 1 }
       },
       "opacity": 72,
+      "scrollbarState": "hidden",
       "useAcrylic": false
     },
     "list": [
       {
-        "experimental.rightClickContextMenu": true,
         "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "experimental.rightClickContextMenu": true,
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "hidden": false,
         "name": "\u547d\u4ee4\u63d0\u793a\u7b26"

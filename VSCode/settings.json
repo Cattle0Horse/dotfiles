@@ -1,9 +1,25 @@
 {
+  // todo: path/to/xxx
   // toggleSuggestionDetails 按键切换用户代码片段预览(建议细节, 及其代码片段过大及其卡顿, 可查看按键绑定切换)
   // ----------------- 系统设置 -----------------
+  // 文件显示过滤
+  "files.exclude": {
+    // 版本控制相关
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    // 操作系统元文件
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  // 控制 UI 是否应在已针对屏幕阅读器进行优化的模式下运行
+  "editor.accessibilitySupport": "auto",
+  // 保存文件时，在文件末尾添加单独的空行（如果没有）
   "notebook.insertFinalNewline": true,
   // 关闭copilot
   "chat.commandCenter.enabled": false,
+  // 控制在粘贴本机文件和文件夹时资源管理器是否应要求进行确认
+  "explorer.confirmPasteNative": false,
   // 保存文件时在文件末尾插入一个最终新行
   "files.insertFinalNewline": true,
   // 禁用遥测
@@ -94,7 +110,7 @@
   "zenMode.hideLineNumbers": false,
   // 折行
   "editor.wordWrap": "on",
-  "editor.wordWrapColumn": 100,
+  "editor.wordWrapColumn": 120,
   // 建议的接受方式
   "editor.suggest.insertMode": "replace",
   // 控制排序时是否提高靠近光标的词语的优先级
@@ -235,7 +251,7 @@
   "files.associations": { "*.clang-format": "yaml", "*.opml": "xml" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[snippets]": { "editor.defaultFormatter": "vscode.json-language-features" },
-  "[xml]": { "editor.defaultFormatter": "fabianlauer.vs-code-xml-format" },
+  "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
   "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
   "[yaml]": {
@@ -249,13 +265,154 @@
       "strings": true
     }
   },
-  // ----------------- markdown -----------------
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.defaultColorDecorators": "never",
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  // ------------------------ markdown ---------------------------
   "[markdown]": { "editor.defaultFormatter": "yzhang.markdown-all-in-one" },
-  "markdown.copyFiles.destination": { "**/*": "images/${documentBaseName}/" },
+  // ----------------- yzhang.markdown-all-in-one --------------------------
+  "markdown.extension.bold.indicator": "**", // ** 粗体语法指示符，默认双星号
+  "markdown.extension.completion.enabled": true, // 智能补全（如链接、数学公式等）（使用内置的，因为支持同级目录）
+  "markdown.extension.completion.respectVscodeSearchExclude": false, // 补全时是否遵循 VSCode 的搜索排除设置；false 表示补全时也会索引被排除的文件
+  "markdown.extension.completion.root": "", // 补全根目录，空字符串表示工作区根
+  "markdown.extension.extraLangIds": [], // 额外识别的语言 ID 列表（如 mdx），默认为空
+  "markdown.extension.italic.indicator": "*", // * 斜体语法指示符，默认单星号
+  "markdown.extension.katex.macros": {}, // KaTeX 自定义宏，可用于数学公式
+  "markdown.extension.list.indentationSize": "inherit", // 列表缩进方式，可选 'adaptive'（跟随前一行）或数字，'inherit' 使用当前文档设置的缩进量（请查看 VS Code 状态栏）
+  "markdown.extension.list.toggle.candidate-markers": ["-", "*", "+", "1.", "1)"], // 切换列表项时可用的标记符号集合
+  "markdown.extension.math.enabled": false, // 启用行内和块级数学公式渲染（渲染被markdown-preview-enhanced替代）
+  "markdown.extension.orderedList.autoRenumber": true, // 自动重排有序列表编号
+  "markdown.extension.orderedList.marker": "ordered", // 有序列表标记风格，'ordered' 表示使用 1.、2.、…, 'one' 表示使用单一数字
+  "markdown.extension.preview.autoShowPreviewToSide": false, // 打开 Markdown 文件时，不自动在侧边打开预览
+  "markdown.extension.print.absoluteImgPath": true, // 打印/导出为 HTML 时，将本地图片路径转换为绝对路径
+  "markdown.extension.print.imgToBase64": false, // 打印时不将图片编码为 Base64
+  "markdown.extension.print.includeVscodeStylesheets": true, // 导出 HTML 时包含 VSCode 默认样式表
+  "markdown.extension.print.onFileSave": false, // 保存时不自动触发打印/导出操作
+  "markdown.extension.print.pureHtml": false, // 导出包含 VSCode 样式，不是极简纯 HTML
+  "markdown.extension.print.theme": "light", // 导出时使用的主题：'light' 或 'dark'
+  "markdown.extension.print.validateUrls": true, // 导出前校验所有链接地址有效性
+  "markdown.extension.showActionButtons": false, // 在编辑器上方不显示扩展的快捷按钮
+  "markdown.extension.syntax.decorationFileSizeLimit": 50000, // 语法高亮装饰的文件大小上限（字节），超过不渲染
+  "markdown.extension.syntax.plainTheme": false, // 不使用极简的纯文本主题
+  "markdown.extension.tableFormatter.delimiterRowNoPadding": false, // 表格格式化时，分隔行是否无额外内边距
+  "markdown.extension.tableFormatter.enabled": true, // 启用表格自动格式化
+  "markdown.extension.tableFormatter.normalizeIndentation": false, // 使位于列表内的表格的缩进长度为制表符长度
+  "markdown.extension.toc.levels": "1..6", // 目录生成的标题层级范围
+  "markdown.extension.toc.omittedFromToc": {}, // 不包含在目录中的标题关键词列表
+  "markdown.extension.toc.orderedList": false, // 生成的目录使用无序列表
+  "markdown.extension.toc.plaintext": false, // 不仅仅输出纯文本目录，保留链接
+  "markdown.extension.toc.slugifyMode": "github", // 目录锚点的 slug 转换模式，模拟 GitHub
+  "markdown.extension.toc.unorderedList.marker": "-", // 目录列表项使用的无序列表标记
+  "markdown.extension.toc.updateOnSave": true, // 保存时自动更新目录
+  // ---------------------- VSCode 内置 ------------------------------
+  "markdown.copyFiles.destination": { "**/*": "attachments/${documentBaseName}/" }, // 粘贴本地文件时的目标路径规则
+  "markdown.copyFiles.overwriteBehavior": "nameIncrementally", // 文件名冲突时按序号重命名
+  "markdown.editor.drop.copyIntoWorkspace": "mediaFiles", // 拖放文件到编辑器时复制到工作区的 mediaFiles 目录
+  "markdown.editor.drop.enabled": "smart", // 拖放时智能处理（链接/复制/不处理）
+  "markdown.editor.filePaste.audioSnippet": "<audio controls src=\"${src}\" title=\"${title}\"></audio>", // 粘贴音频文件时插入的 HTML 片段模板
+  "markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles", // 粘贴文件时复制到 mediaFiles
+  "markdown.editor.filePaste.enabled": "smart", // 粘贴时智能处理
+  "markdown.editor.filePaste.videoSnippet": "<video controls src=\"${src}\" title=\"${title}\"></video>", // 粘贴视频文件时插入的 HTML 片段模板
+  "markdown.editor.pasteUrlAsFormattedLink.enabled": "smartWithSelection", // 当选中文本粘贴 URL 时，智能生成格式化链接
+  "markdown.editor.updateLinksOnPaste.enabled": true, // 粘贴文件时自动更新链接
+  "markdown.links.openLocation": "currentGroup", // 点击链接在当前编辑组打开
+  "markdown.math.enabled": false, // 启用内置数学公式渲染（渲染被markdown-preview-enhanced替代）
+  "markdown.math.macros": {}, // 内置数学公式自定义宏
+  "markdown.occurrencesHighlight.enabled": false, // 关闭标记同一标记（如链接、标题）时的高亮
+  "markdown.preferredMdPathExtensionStyle": "auto", // Markdown 路径扩展名风格自动检测
+  "markdown.suggest.paths.enabled": false, // 路径智能补全（markdown all in one 替代）
+  "markdown.suggest.paths.includeWorkspaceHeaderCompletions": "onDoubleHash", // 在输入 ## 时提示同目录 Markdown 标题
+  "markdown.updateLinksOnFileMove.enabled": "never", // 移动文件时不更新链接
+  "markdown.updateLinksOnFileMove.enableForDirectories": true, // 移动目录时更新其下链接
+  "markdown.updateLinksOnFileMove.include": [
+    // 链接更新范围
+    "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+    "**/*.{jpg,jpe,jpeg,png,bmp,gif,ico,webp,avif,tiff,svg,mp4}"
+  ],
+  "markdown.validate.enabled": false, // 关闭内置校验（由 markdownlint 替代）
+  "markdown.validate.duplicateLinkDefinitions.enabled": "warning", // 重复链接定义时给出警告
+  "markdown.validate.fileLinks.enabled": "warning", // 文件链接校验警告
+  "markdown.validate.fileLinks.markdownFragmentLinks": "inherit", // 片段链接校验继承全局 fileLinks 设置
+  "markdown.validate.fragmentLinks.enabled": "warning", // 内部锚点链接校验警告
+  "markdown.validate.ignoredLinks": [], // 忽略的链接校验列表
+  "markdown.validate.referenceLinks.enabled": "warning", // 引用式链接校验警告
+  "markdown.validate.unusedLinkDefinitions.enabled": "hint", // 未使用的链接定义时给出提示
+  // ----------------- shd101wyy.markdown-preview-enhanced -----------------
+  // === 核心预览行为与界面 ===============================================
+  "markdown-preview-enhanced.configPath": "", // 自定义配置文件路径
+  "markdown-preview-enhanced.usePandocParser": false, // 使用 Pandoc 解析器而不是 markdown-it
+  "markdown-preview-enhanced.wikiLinkTargetFileExtension": ".md", // wiki链接目标文件扩展名（如[[MyPage.md]]）
+  "markdown-preview-enhanced.wikiLinkTargetFileNameChangeCase": "none", // wiki链接目标文件名大小写转换
+  "markdown-preview-enhanced.markdownFileExtensions": [".md", ".markdown", ".mdx"], // Markdown文件扩展名
+  "markdown-preview-enhanced.enableCriticMarkupSyntax": false, // CriticMarkup语法
+  "markdown-preview-enhanced.enableLinkify": true, // 启用链接自动识别
+  "markdown-preview-enhanced.liveUpdate": false, // 实时预览更新（编辑时自动刷新，大文件会卡顿）
+  "markdown-preview-enhanced.scrollSync": true, // 同步编辑器与预览滚动位置
+  "markdown-preview-enhanced.previewMode": "Single Preview", // 预览模式（对于切换markdown文件时）
+  "markdown-preview-enhanced.printBackground": false, // 打印时是否包含背景颜色
+  "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": true, // 隐藏VSCode原生预览按钮
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false, // 禁用自动显示编辑中的文件预览
+  "markdown-preview-enhanced.imageMagickPath": "", // ImageMagick工具路径（图片转换），如果为空，则使用sharp替代
+  "markdown-preview-enhanced.chromePath": "", // 指定Chrome浏览器路径
+  "markdown-preview-enhanced.frontMatterRenderingOption": "none", // YAML front matter渲染方式
   "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
   "markdown-preview-enhanced.revealjsTheme": "black.css",
   "markdown-preview-enhanced.enablePreviewZenMode": false,
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  // === 排版与语法增强 ==================================================
+  "markdown-preview-enhanced.enableTypographer": true, // 启用智能排版（优化引号、连字符等）
+  "markdown-preview-enhanced.breakOnSingleNewLine": false, // 是否单换行符触发新段落（Github风格是单换行符视为空格，末尾两空格或两个换行符视为新段落）
+  "markdown-preview-enhanced.enableEmojiSyntax": true, // 启用表情符号语法（如 :smile:），仅适用于 markdown-it 解析器，不适用于pandoc
+  "markdown-preview-enhanced.enableWikiLinkSyntax": true, // 启用维基链接语法（如 [[Page]]）
+  "markdown-preview-enhanced.useGitHubStylePipedLink": true, // GitHub 风格管道wiki链接（如 [[text|link]]）
+  "markdown-preview-enhanced.enableExtendedTableSyntax": true, // 启用扩展表格语法（如单元格合并）
+  // === 代码块与主题 ====================================================
+  "markdown-preview-enhanced.codeBlockTheme": "auto.css", // 代码块高亮主题（默认跟随编辑器主题）
+  "markdown-preview-enhanced.previewColorScheme": "selectedPreviewTheme", // 预览主题颜色方案
+  "markdown-preview-enhanced.mermaidTheme": "default", // mermaid主题
+  // === 图像与上传 ======================================================
+  "markdown-preview-enhanced.imageFolderPath": "/attachments", // 图片默认保存路径
+  "markdown-preview-enhanced.imageUploader": "imgur", // 图片上传服务（imgur或自定义）
+  "markdown-preview-enhanced.qiniuAccessKey": "", // 七牛云访问密钥
+  "markdown-preview-enhanced.qiniuSecretKey": "", // 七牛云私有密钥
+  "markdown-preview-enhanced.qiniuBucket": "", // 七牛云存储空间名称
+  "markdown-preview-enhanced.qiniuDomain": "http://", // 七牛云图床域名
+  // === 数学公式渲染 ====================================================
+  "markdown-preview-enhanced.mathRenderingOption": "KaTeX", // 公式渲染引擎（KaTeX/MathJax/none）
+  "markdown-preview-enhanced.latexEngine": "pdflatex", // 本地LaTeX引擎（需安装）
+  "markdown-preview-enhanced.mathBlockDelimiters": [
+    ["$$", "$$"],
+    ["\\[", "\\]"]
+  ],
+  "markdown-preview-enhanced.mathInlineDelimiters": [
+    ["$", "$"],
+    ["\\(", "\\)"]
+  ],
+  "markdown-preview-enhanced.jsdelivrCdnHost": "cdn.jsdelivr.net",
+  "markdown-preview-enhanced.mathjaxV3ScriptSrc": "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js", // MathJax v3脚本地址
+  "markdown-preview-enhanced.mathRenderingOnlineService": "https://latex.codecogs.com/gif.latex", // 在线LaTeX渲染服务
+  // === HTML与多媒体 ====================================================
+  "markdown-preview-enhanced.enableHTML5Embed": false, // 启用转换音频视频链接到HTML5嵌入音频视频标签
+  "markdown-preview-enhanced.HTML5EmbedAudioAttributes": "controls preload=\"metadata\" width=\"320\"", // HTML5音频标签默认属性
+  "markdown-preview-enhanced.HTML5EmbedVideoAttributes": "controls preload=\"metadata\" width=\"320\" height=\"240\"", // HTML5视频标签默认属性
+  "markdown-preview-enhanced.HTML5EmbedUseImageSyntax": true, // 使用Markdown图片语法替代HTML图片标签
+  "markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": false, // 禁用HTTP协议资源嵌入
+  "markdown-preview-enhanced.HTML5EmbedUseLinkSyntax": false, // 允许使用链接语法嵌入HTML5（如 <audio src="audio.mp3">）
+  // === 工具与服务集成 ==================================================
+  "markdown-preview-enhanced.pandocPath": "pandoc", // Pandoc可执行文件路径
+  "markdown-preview-enhanced.pandocArguments": [], // Pandoc转换时附加参数(e.g. ['--smart', '--filter=/bin/exe']) 请使用长参数名称。
+  "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_single_backslash", // Pandoc解析规则
+  "markdown-preview-enhanced.plantumlJarPath": "", // PlantUML本地JAR路径
+  "markdown-preview-enhanced.plantumlServer": "", // PlantUML远程服务器地址
+  "markdown-preview-enhanced.krokiServer": "https://kroki.io", // Kroki服务器地址（渲染结构图）
+  // === 安全与协议 =====================================================
+  "markdown-preview-enhanced.protocolsWhiteList": "http://, https://, atom://, file://, mailto:, tel:", // 允许的协议白名单
+  "markdown-preview-enhanced.enableScriptExecution": false, // 禁用预览中执行JavaScript（高风险）
+  // === 高级功能与调试 =================================================
+  "markdown-preview-enhanced.puppeteerArgs": [], // Puppeteer启动参数
+  "markdown-preview-enhanced.puppeteerWaitForTimeout": 0, // Puppeteer等待超时时间（毫秒）
   //  ------------------------ python ----------
   "python.analysis.typeCheckingMode": "standard",
   "python.analysis.inlayHints.callArgumentNames": "off",
@@ -272,7 +429,7 @@
     // },
     "editor.formatOnType": true
   },
-  // --------------------- go -----------------
+  // --------------------- golang -----------------
   "go.inlayHints.constantValues": true,
   "[go]": {
     "editor.defaultFormatter": "golang.go",
@@ -285,6 +442,14 @@
   // GO error的透明度修改
   "lowlightgoerrors.Enabled": true,
   "lowlightgoerrors.DefaultOpacity": "Low",
+  // ----------------- Java -----------------
+  "[java]": { "editor.defaultFormatter": "redhat.java" },
+  "java.configuration.runtimes": [
+    { "name": "JavaSE-1.8", "path": "/path/to/temurin8-jdk", "default": true }, // HINT: change this
+    { "name": "JavaSE-17", "path": "/path/to/temurin17-jdk" } // HINT: change this
+  ],
+  // java 项目管理器不显示非 Java 资源
+  "java.project.explorer.showNonJavaResources": false,
   //  ------------------------ Git ----------------------------
   // 自动从当前 Git 存储库的默认远程库提取提交
   "git.autofetch": true,
@@ -467,6 +632,7 @@
   ],
   // ----------------- vscodevim.vim -----------------
   // todo: vim settings
+  // bug: 快速光标移动时出现错误，导致插入模式光标左右移动不会跟随（即上下移动后，按下左右会回到之前行）控制台提示 [warning] Ignoring slipped selection: [119, 0; 119, 0]
   // 改进vim性能
   "extensions.experimental.affinity": { "vscodevim.vim": 1 },
   "vim.vimrc.enable": true,
@@ -505,12 +671,12 @@
   // "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\Software\\im-select.exe",
   // "vim.autoSwitchInputMethod.switchIMCmd": "D:\\Software\\im-select.exe {im}",
   /* 
-			  note: 
-			  gcc: 行注释
-			  gCC: 块注释
-			  gd: 跳转至定义(函数内)，配合返回 <alt+方向键> 来回跳转
-			  gD: 跳转至定义(文件内)，配合返回 <alt+方向键> 来回跳转
-		  */
+        note: 
+        gcc: 行注释
+        gCC: 块注释
+        gd: 跳转至定义(函数内)，配合返回 <alt+方向键> 来回跳转
+        gD: 跳转至定义(文件内)，配合返回 <alt+方向键> 来回跳转
+      */
   "vim.normalModeKeyBindingsNonRecursive": [
     // 更换为 i j k l 为 上 左 下 右
     { "before": ["i"], "after": ["k"] },
@@ -659,76 +825,6 @@
   },
   // ----------------- cweijan.dbclient-jdbc -----------------
   "database-client.autoSync": true,
-  // ----------------- shd101wyy.markdown-preview-enhanced -----------------
-  // === 核心预览行为与界面 ===============================================
-  "markdown-preview-enhanced.configPath": "", // 自定义配置文件路径
-  "markdown-preview-enhanced.usePandocParser": false, // 使用 Pandoc 解析器而不是 markdown-it
-  "markdown-preview-enhanced.wikiLinkTargetFileExtension": ".md", // wiki链接目标文件扩展名（如[[MyPage.md]]）
-  "markdown-preview-enhanced.wikiLinkTargetFileNameChangeCase": "none", // wiki链接目标文件名大小写转换
-  "markdown-preview-enhanced.markdownFileExtensions": [".md", ".markdown", ".mdx"], // Markdown文件扩展名
-  "markdown-preview-enhanced.enableCriticMarkupSyntax": false, // CriticMarkup语法
-  "markdown-preview-enhanced.enableLinkify": true, // 启用链接自动识别
-  "markdown-preview-enhanced.liveUpdate": false, // 实时预览更新（编辑时自动刷新，大文件会卡顿）
-  "markdown-preview-enhanced.scrollSync": true, // 同步编辑器与预览滚动位置
-  "markdown-preview-enhanced.previewMode": "Single Preview", // 预览模式（对于切换markdown文件时）
-  "markdown-preview-enhanced.printBackground": false, // 打印时是否包含背景颜色
-  "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": true, // 隐藏VSCode原生预览按钮
-  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false, // 禁用自动显示编辑中的文件预览
-  "markdown-preview-enhanced.imageMagickPath": "", // ImageMagick工具路径（图片转换），如果为空，则使用sharp替代
-  "markdown-preview-enhanced.chromePath": "", // 指定Chrome浏览器路径
-  "markdown-preview-enhanced.frontMatterRenderingOption": "none", // YAML front matter渲染方式
-  // === 排版与语法增强 ==================================================
-  "markdown-preview-enhanced.enableTypographer": true, // 启用智能排版（优化引号、连字符等）
-  "markdown-preview-enhanced.breakOnSingleNewLine": false, // 是否单换行符触发新段落（Github风格是单换行符视为空格，末尾两空格或两个换行符视为新段落）
-  "markdown-preview-enhanced.enableEmojiSyntax": true, // 启用表情符号语法（如 :smile:），仅适用于 markdown-it 解析器，不适用于pandoc
-  "markdown-preview-enhanced.enableWikiLinkSyntax": true, // 启用维基链接语法（如 [[Page]]）
-  "markdown-preview-enhanced.useGitHubStylePipedLink": true, // GitHub 风格管道wiki链接（如 [[text|link]]）
-  "markdown-preview-enhanced.enableExtendedTableSyntax": true, // 启用扩展表格语法（如单元格合并）
-  // === 代码块与主题 ====================================================
-  "markdown-preview-enhanced.codeBlockTheme": "auto.css", // 代码块高亮主题（默认跟随编辑器主题）
-  "markdown-preview-enhanced.previewColorScheme": "selectedPreviewTheme", // 预览主题颜色方案
-  "markdown-preview-enhanced.mermaidTheme": "default", // mermaid主题
-  // === 图像与上传 ======================================================
-  "markdown-preview-enhanced.imageFolderPath": "/attachments", // 图片默认保存路径
-  "markdown-preview-enhanced.imageUploader": "imgur", // 图片上传服务（imgur或自定义）
-  "markdown-preview-enhanced.qiniuAccessKey": "", // 七牛云访问密钥
-  "markdown-preview-enhanced.qiniuSecretKey": "", // 七牛云私有密钥
-  "markdown-preview-enhanced.qiniuBucket": "", // 七牛云存储空间名称
-  "markdown-preview-enhanced.qiniuDomain": "http://", // 七牛云图床域名
-  // === 数学公式渲染 ====================================================
-  "markdown-preview-enhanced.mathRenderingOption": "KaTeX", // 公式渲染引擎（KaTeX/MathJax/none）
-  "markdown-preview-enhanced.latexEngine": "pdflatex", // 本地LaTeX引擎（需安装）
-  "markdown-preview-enhanced.mathBlockDelimiters": [
-    ["$$", "$$"],
-    ["\\[", "\\]"]
-  ],
-  "markdown-preview-enhanced.mathInlineDelimiters": [
-    ["$", "$"],
-    ["\\(", "\\)"]
-  ],
-  "markdown-preview-enhanced.jsdelivrCdnHost": "cdn.jsdelivr.net",
-  "markdown-preview-enhanced.mathjaxV3ScriptSrc": "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js", // MathJax v3脚本地址
-  "markdown-preview-enhanced.mathRenderingOnlineService": "https://latex.codecogs.com/gif.latex", // 在线LaTeX渲染服务
-  // === HTML与多媒体 ====================================================
-  "markdown-preview-enhanced.enableHTML5Embed": false, // 启用转换音频视频链接到HTML5嵌入音频视频标签
-  "markdown-preview-enhanced.HTML5EmbedAudioAttributes": "controls preload=\"metadata\" width=\"320\"", // HTML5音频标签默认属性
-  "markdown-preview-enhanced.HTML5EmbedVideoAttributes": "controls preload=\"metadata\" width=\"320\" height=\"240\"", // HTML5视频标签默认属性
-  "markdown-preview-enhanced.HTML5EmbedUseImageSyntax": true, // 使用Markdown图片语法替代HTML图片标签
-  "markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": false, // 禁用HTTP协议资源嵌入
-  "markdown-preview-enhanced.HTML5EmbedUseLinkSyntax": false, // 允许使用链接语法嵌入HTML5（如 <audio src="audio.mp3">）
-  // === 工具与服务集成 ==================================================
-  "markdown-preview-enhanced.pandocPath": "pandoc", // Pandoc可执行文件路径
-  "markdown-preview-enhanced.pandocArguments": [], // Pandoc转换时附加参数(e.g. ['--smart', '--filter=/bin/exe']) 请使用长参数名称。
-  "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_single_backslash", // Pandoc解析规则
-  "markdown-preview-enhanced.plantumlJarPath": "", // PlantUML本地JAR路径
-  "markdown-preview-enhanced.plantumlServer": "", // PlantUML远程服务器地址
-  "markdown-preview-enhanced.krokiServer": "https://kroki.io", // Kroki服务器地址（渲染结构图）
-  // === 安全与协议 =====================================================
-  "markdown-preview-enhanced.protocolsWhiteList": "http://, https://, atom://, file://, mailto:, tel:", // 允许的协议白名单
-  "markdown-preview-enhanced.enableScriptExecution": false, // 禁用预览中执行JavaScript（高风险）
-  // === 高级功能与调试 =================================================
-  "markdown-preview-enhanced.puppeteerArgs": [], // Puppeteer启动参数
-  "markdown-preview-enhanced.puppeteerWaitForTimeout": 0, // Puppeteer等待超时时间（毫秒）
   // ----------- PKief.material-icon-theme ----------
   "material-icon-theme.folders.color": "#42a5f5",
   "material-icon-theme.hidesExplorerArrows": true,
@@ -736,7 +832,31 @@
   "projectManager.sortList": "Recent",
   // remote
   "remote.SSH.configFile": "~/.ssh/config",
-  // unchecked
+  // ----------- FittenTech.Fitten-Code --------------
   "fittencode.languagePreference.displayPreference": "zh-cn",
-  "fittencode.languagePreference.commentPreference": "zh-cn"
+  "fittencode.languagePreference.commentPreference": "zh-cn",
+  // --------------- intellsmi.comment-translate ---------------
+  "commentTranslate.hover.string": true,
+  "commentTranslate.hover.variable": true,
+  "commentTranslate.multiLineMerge": true,
+  "commentTranslate.selectTargetLanguageWhenReplacing": true,
+  "commentTranslate.browse.enabled": false,
+  "commentTranslate.browse.mode": "contrast",
+  "commentTranslate.googleTranslate.mirror": "",
+  "commentTranslate.googleTranslate.tld": "com",
+  "commentTranslate.hover.concise": false,
+  "commentTranslate.hover.content": true,
+  "commentTranslate.hover.enabled": true,
+  "commentTranslate.hover.nearShow": true,
+  "commentTranslate.ignore": [
+    { "languageId": "javascript,typescript,javascriptreact,typescriptreact", "regular": "[\\*\\s]+" },
+    { "languageId": "dart", "regular": "[\\s|/]+" }
+  ],
+  "commentTranslate.maxTranslationLength": 10000,
+  "commentTranslate.source": "Google",
+  "commentTranslate.sourceLanguage": "auto",
+  "commentTranslate.targetLanguage": "", // 为空则中英互译
+  "commentTranslate.translationAli.accessKeyId": "",
+  "commentTranslate.translationAli.accessKeySecret": "",
+  // unchecked
 }
