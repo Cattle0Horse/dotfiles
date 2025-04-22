@@ -450,6 +450,9 @@
   ],
   // java 项目管理器不显示非 Java 资源
   "java.project.explorer.showNonJavaResources": false,
+  // 不要格式化注释，防止影响换行
+  "java.format.comments.enabled": false,
+  // "java.settings.url": "",
   //  ------------------------ Git ----------------------------
   // 自动从当前 Git 存储库的默认远程库提取提交
   "git.autofetch": true,
@@ -637,7 +640,7 @@
   "extensions.experimental.affinity": { "vscodevim.vim": 1 },
   "vim.vimrc.enable": true,
   // vimrc文件配置
-  "vim.vimrc.path": "D:\\Personal\\dotfiles\\vscode\\VscodeVim.vimrc",
+  "vim.vimrc.path": "/path/to/VscodeVim.vimrc", // HINT: change this
   // <leader> <leader> e/s (e为当前位置之后的所有单词打标签跳转, s+<char>为指定字符打标签跳转)
   "vim.easymotion": true,
   "vim.incsearch": true,
@@ -831,7 +834,7 @@
   // ----------- alefragnani.project-manager ---------
   "projectManager.sortList": "Recent",
   // remote
-  "remote.SSH.configFile": "~/.ssh/config",
+  "remote.SSH.configFile": "~/.ssh/config", // HINT: change this
   // ----------- FittenTech.Fitten-Code --------------
   "fittencode.languagePreference.displayPreference": "zh-cn",
   "fittencode.languagePreference.commentPreference": "zh-cn",
