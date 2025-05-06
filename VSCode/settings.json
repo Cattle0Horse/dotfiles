@@ -39,7 +39,7 @@
   // chinese
   "editor.unicodeHighlight.allowedLocales": { "zh-hans": true, "zh-hant": true },
   // 顶部窗口显示标题
-  "window.title": "${folderName} ${activeEditorShort}",
+  "window.title": "${dirty}${folderName}${separator}${activeEditorShort}",
   // 字体大小设置
   "editor.fontSize": 17,
   // "editor.fontFamily": "'Cascadia Code NF', '等距更纱黑体 SC', monospace",
