@@ -32,6 +32,11 @@
     "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
   },
+  // 关闭组中其他编辑器
+  {
+    "key": "ctrl+k w",
+    "command": "workbench.action.closeOtherEditors"
+  },
   // 视觉行移动
   {
     "key": "up",
