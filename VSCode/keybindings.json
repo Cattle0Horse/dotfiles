@@ -181,8 +181,10 @@
   {
     "key": "shift+enter",
     "command": "editor.action.openLink",
+    // 可能存在链接未标识
+    "when": "editorFocus && !suggestWidgetVisible && !findWidgetVisible && !terminalFocus"
     // 光标在编辑器内、当前光标位置可提供链接、代码补全面板未打开、查找面板未打开、终端未获焦点
-    "when": "editorFocus && !suggestWidgetVisible && editorHasLinkProvider && !findWidgetVisible && !terminalFocus"
+    // "when": "editorFocus && !suggestWidgetVisible && editorHasLinkProvider && !findWidgetVisible && !terminalFocus"
   },
   {
     "key": "ctrl+u",
