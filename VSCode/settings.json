@@ -865,5 +865,9 @@
   "commentTranslate.targetLanguage": "", // 为空则中英互译
   "commentTranslate.translationAli.accessKeyId": "",
   "commentTranslate.translationAli.accessKeySecret": "",
+  // ---- lihuiwang.vue-alias-skip ----
+  "alias-skip.mappings": {
+    "@": "/src"
+  }
   // unchecked
 }
