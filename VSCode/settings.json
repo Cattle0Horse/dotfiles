@@ -256,6 +256,7 @@
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
   "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
+  "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -273,7 +274,7 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   // ------------------------ markdown ---------------------------
-  "[markdown]": { "editor.defaultFormatter": "yzhang.markdown-all-in-one" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   // ----------------- yzhang.markdown-all-in-one --------------------------
   "markdown.extension.bold.indicator": "**", // ** 粗体语法指示符，默认双星号
   "markdown.extension.completion.enabled": true, // 智能补全（如链接、数学公式等）（使用内置的，因为支持同级目录）
@@ -431,6 +432,10 @@
     // },
     "editor.formatOnType": true
   },
+  // ---------- njpwerner.autodocstring ----------
+  "autoDocstring.logLevel": "None",
+  "autoDocstring.docstringFormat": "sphinx-notypes",
+  "autoDocstring.startOnNewLine": true,
   // --------------------- golang -----------------
   "go.inlayHints.constantValues": true,
   "[go]": {
@@ -452,10 +457,18 @@
   ],
   // java 项目管理器不显示非 Java 资源
   "java.project.explorer.showNonJavaResources": false,
+  // 导出 Jar 文件的路径。您可以将此选项置为空串来手动选择 jar 文件的导出路径
+  "java.project.exportJar.targetPath": "${workspaceFolder}/${workspaceFolderBasename}.jar",
+  // java项目管理器分层显示
+  "java.dependency.packagePresentation": "hierarchical",
+  // 在新的语句时不要自动格式化
+  "java.format.onType.enabled": false,
   // 不要格式化注释，防止影响换行
   "java.format.comments.enabled": false,
+  // maven配置路径
+  "java.configuration.maven.userSettings": "path/to/settings.xml", // HINT: change this
+  "java.configuration.maven.globalSettings": "path/to/settings.xml", // HINT: change this
   "java.compile.nullAnalysis.mode": "automatic",
-  "java.dependency.packagePresentation": "hierarchical",
   // "java.settings.url": "",
   //  ------------------------ Git ----------------------------
   // 自动从当前 Git 存储库的默认远程库提取提交
@@ -675,8 +688,8 @@
   // note: surround_input时也会切换输入法
   // "vim.autoSwitchInputMethod.enable": true,
   // "vim.autoSwitchInputMethod.defaultIM": "1033",
-  // "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\Software\\im-select.exe",
-  // "vim.autoSwitchInputMethod.switchIMCmd": "D:\\Software\\im-select.exe {im}",
+  // "vim.autoSwitchInputMethod.obtainIMCmd": "path/to/im-select.exe", // HINT: change this
+  // "vim.autoSwitchInputMethod.switchIMCmd": "path/to/im-select.exe {im}", // HINT: change this
   /* 
         note: 
         gcc: 行注释
@@ -715,7 +728,7 @@
     { "before": ["g", "["], "commands": ["editor.action.marker.prevInFiles"] },
     { "before": ["g", "]"], "commands": ["editor.action.marker.nextInFiles"] },
     // 取消搜索高亮
-    { "before": ["<leader>", "n"], "commands": [":nohl"] },
+    { "before": ["<leader>", "n"], "commands": [":nohl"], "silent": true },
     // whichkey
     { "before": [":"], "commands": ["whichkey.show"], "silent": true },
     // 合并行
@@ -820,12 +833,12 @@
     // ctrl+p或<leader>of 打开面板(无字符)
     // ctrl+Q进入块选择模式
     // 面板操作:
-    // 0. 无 打开文件
-    // 1. > 命令vscode-office
-    // 2. % 全局内容搜索
-    // 3. @ 大纲跳转(当前文件 变量、函数 间的跳转)
-    // 4. : 行号跳转(设置相对行号时仍然会仍然会显示绝对行号)
-    // 5. # 符号搜索(function等)
+    // 0. 无  打开文件
+    // 1. >  命令vscode-office
+    // 2. %  全局内容搜索
+    // 3. @  大纲跳转(当前文件，变量、函数 间的跳转)
+    // 4. :  行号跳转(设置相对行号时仍然会仍然会显示绝对行号)
+    // 5. #  符号搜索(全局的，function等)
     "<C-p>": false,
     // 统一关闭当前窗口接口
     "<C-w>": false
@@ -842,6 +855,7 @@
   // ----------- FittenTech.Fitten-Code --------------
   "fittencode.languagePreference.displayPreference": "zh-cn",
   "fittencode.languagePreference.commentPreference": "zh-cn",
+  "fittencode.selection.showCodeLens": false,
   // --------------- intellsmi.comment-translate ---------------
   "commentTranslate.hover.string": true,
   "commentTranslate.hover.variable": true,
