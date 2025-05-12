@@ -1,5 +1,4 @@
 {
-  // todo: path/to/xxx
   // toggleSuggestionDetails 按键切换用户代码片段预览(建议细节, 及其代码片段过大及其卡顿, 可查看按键绑定切换)
   // ----------------- 系统设置 -----------------
   // 文件显示过滤
@@ -61,7 +60,7 @@
   // 资源管理器缩进大小
   "workbench.tree.indent": 16,
   // 键入;时格式化
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   // 编辑器默认格式化程序
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // 粘贴时不格式化文件
@@ -136,9 +135,9 @@
   "editor.rulers": [120],
   // 右侧小地图
   "editor.minimap.enabled": false,
-  // "editor.minimap.scale": 1,
-  // "editor.minimap.maxColumn": 120,
-  // "editor.minimap.renderCharacters": false,
+  "editor.minimap.scale": 1,
+  "editor.minimap.maxColumn": 120,
+  "editor.minimap.renderCharacters": false,
   // 控制单元格编辑器中行号的显示
   "notebook.lineNumbers": "on",
   // 在状态栏显示当前问题
@@ -645,9 +644,14 @@
           "name": "切换配置文件",
           "type": "command",
           "command": "workbench.profiles.actions.switchProfile"
-        },
-        { "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" }
+        }
       ]
+    },
+    {
+      "key": "v",
+      "name": "文件显示相关...",
+      "type": "bindings",
+      "bindings": [{ "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" }]
     }
   ],
   // ----------------- vscodevim.vim -----------------
