@@ -1,33 +1,33 @@
-name: Submodule Sync
+name: Update Submodule
 on:
   repository_dispatch:
-
+    types:
+      - update-submodule
 jobs:
-  sync:
+  update-submodule:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      # 1. 检出主仓库及子模块
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT }}
           submodules: recursive
-      # 2. 更新子模块到远端最新提交
-      - name: Update submodules
+      - name: Authorize Git
         run: |
-          git submodule update --remote --init --recursive
-      # 3. 配置 Git 用户信息
-      - name: Setup Git user
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --global user.name "$GITHUB_ACTOR"
+      - name: Update submodule
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      # 4. 提交并推送更新
-      - name: Commit and push changes
+          git submodule update --init --recursive --remote -f
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+      - name: Commit changes
         run: |
-          git add .gitmodules */.git
-          git commit -m "chore: sync submodules to latest remote" || echo "No changes to commit"
-          git push origin HEAD:main
+          git add writings
+          git commit -m "Update submodule to latest commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
