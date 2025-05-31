@@ -277,7 +277,7 @@ var webShortNameConfig = [
   {
     shortName: "km",
     siteName: "Kimi",
-    url: "https://kimi.moonshot.cn/"
+    url: "https://www.kimi.com/"
   },
   {
     shortName: "cg",
