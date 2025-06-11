@@ -85,7 +85,7 @@
         "intenseTextStyle": "bright",
         "name": "Nushell",
         "showMarksOnScrollbar": false,
-        "source": "nu"
+        "commandline": "nu.exe"
       }
     ]
   },
