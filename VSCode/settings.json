@@ -17,12 +17,16 @@
   "notebook.insertFinalNewline": true,
   // 关闭copilot
   "chat.commandCenter.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
   // 控制在粘贴本机文件和文件夹时资源管理器是否应要求进行确认
   "explorer.confirmPasteNative": false,
   // 保存文件时在文件末尾插入一个最终新行
   "files.insertFinalNewline": true,
   // 禁用遥测
   "telemetry.telemetryLevel": "off",
+  "telemetry.feedback.enabled": false,
   // 禁用遥测
   "redhat.telemetry.enabled": false,
   // vscode内置文件浏览器替代系统浏览器
@@ -254,7 +258,7 @@
   "[snippets]": { "editor.defaultFormatter": "vscode.json-language-features" },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
-  "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
+  "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
   "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[yaml]": {
     "editor.insertSpaces": true,
@@ -886,6 +890,11 @@
   // ---- lihuiwang.vue-alias-skip ----
   "alias-skip.mappings": {
     "@": "/src"
-  }
+  },
+  // --- MiCopilot ---
+  "codingcopilot.enableCloseCompletionShortcutTip": true,
+  "codingcopilot.CommitMessageStyle": "ConventionalCommits",
   // unchecked
+  "workbench.remoteIndicator.showExtensionRecommendations": false,
+  "remote.defaultExtensionsIfInstalledLocally": []
 }

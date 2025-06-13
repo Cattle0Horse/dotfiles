@@ -1,54 +1,24 @@
 [
-  // 终端相关
-  // 当聚焦非编辑器终端，按下ctrl+w时，关闭当前终端
-  {
-    "key": "ctrl+w",
-    "command": "workbench.action.terminal.kill",
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  // todo: 不生效
-  // 使用默认配置新建终端
-  {
-    "key": "ctrl+n",
-    "command": "workbench.action.terminal.new",
-    // "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  // 可选择个人配置新建终端
-  {
-    "key": "ctrl+shift+n",
-    "command": "workbench.action.terminal.newWithProfile",
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  // 上一个终端
-  {
-    "key": "ctrl+i",
-    "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  // 下一个终端
-  {
-    "key": "ctrl+k",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  // 关闭组中其他编辑器
-  {
-    "key": "ctrl+k w",
-    "command": "workbench.action.closeOtherEditors"
-  },
   // 视觉行移动
   {
     "key": "up",
     "command": "cursorMove",
-    "args": { "to": "up", "by": "wrappedLine", "value": 1 },
+    "args": {
+      "to": "up",
+      "by": "wrappedLine",
+      "value": 1
+    },
     "when": "editorTextFocus && !suggestWidgetVisible"
   },
   // 视觉行移动
   {
     "key": "down",
     "command": "cursorMove",
-    "args": { "to": "down", "by": "wrappedLine", "value": 1 },
+    "args": {
+      "to": "down",
+      "by": "wrappedLine",
+      "value": 1
+    },
     "when": "editorTextFocus && !suggestWidgetVisible"
   },
   // 向下复制
@@ -184,6 +154,10 @@
   },
   // 打开当前指向的链接
   {
+    "key": "alt+enter",
+    "command": "editor.action.openLink"
+  },
+  {
     "key": "shift+enter",
     "command": "editor.action.openLink",
     // 可能存在链接未标识
@@ -220,6 +194,21 @@
   {
     "key": "ctrl+k shift+oem_period", // ctrl+k >
     "command": "workbench.action.focusRightGroup"
+  },
+  // 关闭组中其他编辑器
+  {
+    "key": "ctrl+k w",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "selectAllSearchEditorMatches",
+    "when": "inSearchEditor"
   },
   // --- 以下为清除原有快捷键 ---
   {
@@ -279,19 +268,9 @@
     "when": "inSearchEditor || searchViewletFocus"
   },
   {
-    "key": "ctrl+shift+d",
-    "command": "selectAllSearchEditorMatches",
-    "when": "inSearchEditor"
-  },
-  {
     "key": "ctrl+shift+l",
     "command": "-selectAllSearchEditorMatches",
     "when": "inSearchEditor"
-  },
-  {
-    "key": "ctrl+shift+d",
-    "command": "editor.action.selectHighlights",
-    "when": "editorFocus"
   },
   {
     "key": "ctrl+shift+l",
@@ -419,5 +398,9 @@
     "key": "ctrl+i",
     "command": "-editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k w",
+    "command": "-workbench.action.closeEditorsInGroup"
   }
 ]
