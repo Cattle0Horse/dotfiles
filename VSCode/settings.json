@@ -655,7 +655,11 @@
       "key": "v",
       "name": "文件显示相关...",
       "type": "bindings",
-      "bindings": [{ "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" }]
+      // prettier-ignore
+      "bindings": [
+        { "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" },
+        { "key": "b", "name": "切换 Git Line Blame 内联显示", "type": "command", "command": "betterGitLineBlame.toggleInlineAnnotations" },
+      ]
     }
   ],
   // ----------------- vscodevim.vim -----------------
