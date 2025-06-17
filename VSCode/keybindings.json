@@ -1,4 +1,42 @@
 [
+  // 终端相关
+  // 当聚焦非编辑器终端，按下ctrl+w时，关闭当前终端
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // todo: 不生效
+  // 使用默认配置新建终端
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    // "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 可选择个人配置新建终端
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.terminal.newWithProfile",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 上一个终端
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 下一个终端
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  // 关闭组中其他编辑器
+  {
+    "key": "ctrl+k w",
+    "command": "workbench.action.closeOtherEditors"
+  },
   // 视觉行移动
   {
     "key": "up",
@@ -177,8 +215,13 @@
   // 相同项插入光标
   {
     "key": "ctrl+shift+d",
-    "command": "addCursorsAtSearchResults",
-    "when": "fileMatchOrMatchFocus && searchViewletVisible"
+    "command": "selectAllSearchEditorMatches",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
   },
   // 聚焦左侧编辑器组
   {
@@ -195,21 +238,7 @@
     "key": "ctrl+k shift+oem_period", // ctrl+k >
     "command": "workbench.action.focusRightGroup"
   },
-  // 关闭组中其他编辑器
-  {
-    "key": "ctrl+k w",
-    "command": "workbench.action.closeOtherEditors"
-  },
-  {
-    "key": "ctrl+shift+d",
-    "command": "editor.action.selectHighlights",
-    "when": "editorFocus"
-  },
-  {
-    "key": "ctrl+shift+d",
-    "command": "selectAllSearchEditorMatches",
-    "when": "inSearchEditor"
-  },
+
   // --- 以下为清除原有快捷键 ---
   {
     "key": "ctrl+n",
