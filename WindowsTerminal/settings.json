@@ -1,6 +1,8 @@
 {
   // note: 在使用时你应该删除注释
   // https://learn.microsoft.com/zh-cn/windows/terminal/customize-settings/appearance
+  // 自定义命令
+  // https://learn.microsoft.com/en-us/windows/terminal/command-palette
   // 拆分窗格 Terminal.DuplicatePaneAuto（自动规划拆分方向）
   //          Terminal.DuplicatePaneDown （向下拆分）
   // 广播输入 Terminal.ToggleBroadcastInput
@@ -16,14 +18,52 @@
   "alwaysShowTabs": false,
   "autoHideWindow": false,
   "centerOnLaunch": true,
-  "copyFormatting": "none",
-  "copyOnSelect": false,
+  "copyFormatting": "none", // 复制时保留格式
+  "copyOnSelect": false, // 选中时不自动复制
   "showTabsInTitlebar": true,
   "tabSwitcherMode": "disabled",
   "launchMode": "maximizedFocus",
   "disableAnimations": true, // 取消动画
+  "trimBlockSelection": true, // 选择时去除行尾空格
+  "trimPaste": true, // 粘贴时去除行尾空格
+  "experimental.detectURLs": true, // 自动检测 URL 并使其可单击
+  "searchWebDefaultQueryUrl": "https://www.bing.com/search?q=%s", // 终端web搜索配置
   "defaultProfile": "{47302f9c-1ac4-566c-aa3e-8cf29889d6ab}",
-  "actions": [],
+  "actions": [
+    {
+      // 在命令面板中显示“复制”命令
+      "command": "copy",
+      "id": "Terminal.CopyToClipboard",
+      "name": ""
+    },
+    {
+      // 为快捷键提供标签搜索命令id，但不在命令面板中显示
+      "command": "tabSearch",
+      "id": "User.tabSearch",
+      "name": ""
+    },
+    {
+      // 嵌套命令示例
+      "name": "Change font size...",
+      "commands": [
+        { "command": { "action": "adjustFontSize", "delta": 1 } },
+        { "command": { "action": "adjustFontSize", "delta": -1 } },
+        { "command": "resetFontSize" }
+      ]
+    },
+    {
+      // 迭代命令示例
+      "name": "New tab",
+      "commands": [
+        {
+          "iterateOn": "profiles",
+          "icon": "${profile.icon}",
+          "name": "${profile.name}",
+          "command": { "action": "newTab", "profile": "${profile.name}" }
+        }
+      ]
+    }
+  ],
   "keybindings": [
     { "id": null, "keys": "ctrl+shift+w" },
     { "id": null, "keys": "ctrl+shift+f" },
@@ -41,7 +81,8 @@
     { "id": "Terminal.ClosePane", "keys": "ctrl+w" },
     { "id": "Terminal.PrevTab", "keys": "ctrl+j" },
     { "id": "Terminal.NextTab", "keys": "ctrl+l" },
-    { "id": "Terminal.ToggleFocusMode", "keys": "alt+m" }
+    { "id": "Terminal.ToggleFocusMode", "keys": "alt+m" },
+    { "id": "User.tabSearch", "keys": "ctrl+p" }
   ],
   "newTabMenu": [{ "type": "remainingProfiles" }],
   "profiles": {
