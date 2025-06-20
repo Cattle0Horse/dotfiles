@@ -659,6 +659,7 @@
       "bindings": [
         { "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" },
         { "key": "b", "name": "切换 Git Line Blame 内联显示", "type": "command", "command": "betterGitLineBlame.toggleInlineAnnotations" },
+        { "key": "c", "name": "切换注释浏览模式", "type": "command", "command": "commentTranslate.toggleDocumentBrowseMode" },
       ]
     }
   ],
