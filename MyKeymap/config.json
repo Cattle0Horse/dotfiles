@@ -1981,9 +1981,9 @@
         "tm": [
           {
             "windowGroupID": 0,
-            "actionTypeID": 6,
+            "actionTypeID": 8,
             "comment": "Ctrl + Shift + Esc ( Task Manager )",
-            "keysToSend": "^+{esc}"
+            "ahkCode": "Run(\"taskmgr.exe\")"
           }
         ],
         "vm": [
