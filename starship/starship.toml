@@ -1,16 +1,20 @@
 # ~/.config/starship.toml
 # 命令失效 或 disabled=true 时不会显示，因此空格分隔符应该在子命令中，而不是硬编码在format中
 
+# 根据 schema 提供自动补全
+# "$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
 format = """
 $time\
 $hostname\
 $username\
 $directory\
 $git_branch\
+$cmd_duration\
 $character\
 """
-
-add_newline = false
 
 [battery]
 full_symbol = "🔋"
@@ -29,10 +33,11 @@ success_symbol = "[💖](bold green)"
 
 [cmd_duration]
 min_time = 0  # Show command duration over 10,000 milliseconds (=10 sec)
-format = " took [$duration]($style)"
+show_milliseconds = true
+format = "[$duration ]($style)"
 
 [directory]
-truncation_length = 5
+truncation_length = 5 # 显示路径的长度，多余则截断
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
@@ -48,6 +53,7 @@ style = "bold white"
 format = '[\($state( $progress_current of $progress_total)\)]($style)'
 
 [git_status]
+disabled = true
 conflicted = "⚔️"
 ahead = "🏎️ 💨 ×${count}"
 behind = "🐢 ×${count}"
@@ -66,7 +72,6 @@ ssh_only = true
 format = "<[$hostname]($style)> "
 trim_at = "-"
 style = "bold dimmed white"
-disabled = true
 
 [julia]
 format = "[$symbol$version]($style)"
@@ -80,6 +85,7 @@ style = "bold dimmed white"
 disabled = false
 
 [username]
+disabled = false
 style_user = "green"
 show_always = true
 format = "[$user]($style) "
