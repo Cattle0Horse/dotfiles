@@ -1024,12 +1024,28 @@
             "actionValueID": 8
           }
         ],
-        "*e": [
+        "*c": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 1,
+            "winTitle": "explore.exe",
+            "target": "C:\\"
+          }
+        ],
+        "*d": [
           {
             "windowGroupID": 0,
             "actionTypeID": 1,
             "winTitle": "explore.exe",
             "target": "D:\\"
+          }
+        ],
+        "*e": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 1,
+            "winTitle": "ahk_exe msedge.exe",
+            "target": "shortcuts\\Microsoft Edge.lnk"
           }
         ],
         "*q": [
@@ -1038,6 +1054,14 @@
             "actionTypeID": 8,
             "comment": "如果 QQ.exe 进程存在则输入 Ctrl+Alt+z 热键激活 QQ，否则启动 QQ",
             "ahkCode": "ProcessExistSendKeyOrRun(\"QQ.exe\", \"^!z\", \"shortcuts\\QQ.lnk\")"
+          }
+        ],
+        "*t": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 1,
+            "winTitle": "ahk_exe WindowsTerminal.exe",
+            "target": "wt.exe"
           }
         ],
         "*w": [
@@ -2070,7 +2094,6 @@
             "keysToSend": "{text}➤ "
           }
         ],
-
         "sk": [
           {
             "windowGroupID": 0,
