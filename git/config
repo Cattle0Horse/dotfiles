@@ -1,0 +1,48 @@
+# ~/.config/git/config
+# [http]
+#   sslVerify = false
+#   proxy = your.proxy.server:port
+# [https]
+#   sslVerify = false
+#   proxy = your.proxy.server:port
+# [user]
+#   name = your_name
+#   email = your_email
+#   signingkey = your_signing_key_id
+[core]
+  autocrlf = true
+  fsmonitor = true
+  compression = 9
+[alias]
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+# [gpg]
+#   program = your_gpg_program_path
+#   helper = your_gpg_helper_path
+# [credential "helperselector"]
+#   selected = 
+[safe]
+  directory = *
+[init]
+  defaultBranch = main
+[commit]
+  gpgsign = true
+[merge]
+  commit = no
+  ff = no
+[push]
+  autoSetupRemote = true
+  default = current
+  followTags = true
+[pull]
+  ff = yes
+  default = current
+  rebase = true
+[rebase]
+  autoStash = true
+[branch]
+  sort = -committerdate
+[tag]
+  sort = -taggerdate
+[paper]
+  branch = false
+  tag = false
