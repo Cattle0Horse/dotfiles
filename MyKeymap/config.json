@@ -1906,9 +1906,9 @@
         "gj": [
           {
             "windowGroupID": 0,
-            "actionTypeID": 2,
-            "comment": "label:19",
-            "actionValueID": 3
+            "actionTypeID": 8,
+            "comment": "使用Autohotkey内置方法关机",
+            "ahkCode": "Shutdown(1)"
           }
         ],
         "kp": [
