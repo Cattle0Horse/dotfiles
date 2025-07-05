@@ -11,13 +11,13 @@
 ; 锁屏并且t毫秒后关闭显示器
 lockAndCloseDisplay(t) {
     DllCall("LockWorkStation")
-	closeDisplay(t)
+    closeDisplay(t)
 }
 
 ; t毫秒后关闭显示屏
 closeDisplay(t) {
-	Sleep(t)
-	PostMessage(0x112, 0xF170, 2,,"Program Manager")
+    Sleep(t)
+    PostMessage(0x112, 0xF170, 2,,"Program Manager")
 }
 
 ; windows 窗口拖拽，不需要将鼠标放到窗口边框上了
