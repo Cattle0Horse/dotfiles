@@ -65,7 +65,7 @@
 
 [commit]
   # gpgsign = true 表示每次提交默认使用 GPG 签名（用于验证提交者身份）
-  gpgsign = true
+  # gpgsign = true
   # 提交模板
   template = ~/.config/git/commit.template
 
@@ -103,8 +103,13 @@
   # sort = -taggerdate 按照标签创建时间倒序排列标签（git tag -l 时的排序方式）
   sort = -taggerdate
 
-[paper]
-  # branch = false 禁用某些与分支相关的提示或可视化功能
+[pager]
+  # 禁用部分命令的分页器输出
   branch = false
-  # tag = false 禁用某些与标签相关的提示或可视化功能
   tag = false
+  diff = false
+  log = false
+
+[color]
+  # 启用颜色高亮
+  ui = auto
