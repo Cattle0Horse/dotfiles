@@ -1,48 +1,110 @@
 # ~/.config/git/config
+
 # [http]
 #   sslVerify = false
 #   proxy = your.proxy.server:port
+
 # [https]
 #   sslVerify = false
 #   proxy = your.proxy.server:port
-# [user]
-#   name = your_name
-#   email = your_email
-#   signingkey = your_signing_key_id
+
+[user]
+  name = your_name
+  email = your_email
+  # signingkey = your_signing_key_id
+
 [core]
+  # autocrlf = true
+  #   - 在提交时自动将换行符（LF）转换为 CRLF（Windows 风格）；
+  #   - 在检出时将 CRLF 转换为 LF。
+  #   - 适用于 Windows 系统。如果你在 Linux/macOS 上开发，建议设置为 input 或 false。
   autocrlf = true
+  # fsmonitor = true
+  #   - 启用文件系统监控（如 Watchman 或其他文件系统钩子）以加快状态检查（git status）的速度。
+  #   - 可显著提升大型仓库的性能。
   fsmonitor = true
+  # compression = 9
+  #   - 设置 Git 内部压缩级别，范围是 0（无压缩）到 9（最大压缩）。
+  #   - 更高压缩会节省存储空间，但会增加 CPU 开销。
+  #   - 默认值是 -1（使用 zlib 默认压缩级别，通常是 6）。
   compression = 9
+  # 全局忽略文件
+  excludesfile = ~/.config/git/ignore
+
 [alias]
+  # 自定义一个别名 `git lg`，用来以图形化方式查看提交历史。显示内容包括：
+  #   - 提交哈希（简写）
+  #   - 提交相对时间
+  #   - 提交信息
+  #   - 提交者姓名
+  #   - 分支/标签引用（装饰信息）
+  # - 颜色格式化，提升可读性
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+
 # [gpg]
+#   # 指定 Git 使用的 GPG 可执行文件路径，例如：/usr/local/bin/gpg
 #   program = your_gpg_program_path
+#   # 指定 GPG 的帮助程序路径，用于自动签名和验证
 #   helper = your_gpg_helper_path
+
 # [credential "helperselector"]
+#   # 用于选择 Git 凭据助手（credential helper），例如 osxkeychain、manager-core、store 等
+#   # - Windows 上常用的是 manager-core 或 wincred
+#   # - macOS 上推荐 osxkeychain
+#   # - Linux 上推荐使用 gnome-keyring 或 libsecret
 #   selected = 
+
 [safe]
+  # directory = * 表示信任所有目录，Git 可以读取和操作任何路径下的仓库
   directory = *
+
+# [init] 模块控制初始化新仓库时的默认行为
 [init]
+  # defaultBranch = main 设置 git init 创建的新仓库默认分支名为 main（而不是旧版的 master）
   defaultBranch = main
+
 [commit]
+  # gpgsign = true 表示每次提交默认使用 GPG 签名（用于验证提交者身份）
   gpgsign = true
+  # 提交模板
+  template = ~/.config/git/commit.template
+
 [merge]
+  # commit = no 表示执行 git merge 后不会自动提交合并结果，允许手动检查或修改后再提交
   commit = no
+  # ff = no 表示默认不使用 fast-forward 合并策略，总是创建一个新的合并提交
   ff = no
+
 [push]
+  # autoSetupRemote = true 在 push 时自动设置远程跟踪分支，无需每次使用 --set-upstream
   autoSetupRemote = true
+  # default = current 表示默认只推送当前分支
   default = current
+  # followTags = true 推送时自动推送通过 git tag -a 创建的附注标签（annotated tags）
   followTags = true
+
 [pull]
+  # ff = yes 表示在拉取代码时尽量使用 fast-forward 方式合并（不创建额外的合并提交）
   ff = yes
+  # default = current 表示默认只拉取当前分支
   default = current
+  # rebase = true 表示在拉取时使用 rebase 而不是 merge 来整合远程提交，避免合并提交
   rebase = true
+
 [rebase]
+  # autoStash = true 在 rebase 前自动暂存未提交的更改，rebase 完成后自动恢复
   autoStash = true
+
 [branch]
+  # sort = -committerdate 按照提交者时间倒序排列分支（git branch -a 时的排序方式）
   sort = -committerdate
+
 [tag]
+  # sort = -taggerdate 按照标签创建时间倒序排列标签（git tag -l 时的排序方式）
   sort = -taggerdate
+
 [paper]
+  # branch = false 禁用某些与分支相关的提示或可视化功能
   branch = false
+  # tag = false 禁用某些与标签相关的提示或可视化功能
   tag = false
