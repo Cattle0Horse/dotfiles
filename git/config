@@ -47,7 +47,7 @@
 #   # 指定 GPG 的帮助程序路径，用于自动签名和验证
 #   helper = your_gpg_helper_path
 
-# [credential "helperselector"]
+# [credential]
 #   # 用于选择 Git 凭据助手（credential helper），例如 osxkeychain、manager-core、store 等
 #   # - Windows 上常用的是 manager-core 或 wincred
 #   # - macOS 上推荐 osxkeychain
