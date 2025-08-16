@@ -57,6 +57,54 @@
             "actionValueID": 8
           }
         ],
+        "*LButton": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 8,
+            "comment": "进入拖动模式",
+            "ahkCode": "DragWindow()"
+          }
+        ],
+        "*RButton": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 8,
+            "comment": "进入大小调整模式",
+            "ahkCode": "ResizeWindow()"
+          }
+        ],
+        "*WheelDown": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 3,
+            "comment": "label:10",
+            "actionValueID": 8
+          }
+        ],
+        "*WheelUp": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 3,
+            "comment": "label:11",
+            "actionValueID": 9
+          }
+        ],
+        "*[": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 3,
+            "comment": "label:5",
+            "actionValueID": 5
+          }
+        ],
+        "*]": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 3,
+            "comment": "label:6",
+            "actionValueID": 6
+          }
+        ],
         "*a": [
           {
             "windowGroupID": 0,
@@ -1927,12 +1975,28 @@
             "actionValueID": 6
           }
         ],
+        "lg": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 8,
+            "comment": "OBS 关闭录制",
+            "ahkCode": "ProcessExistSendKeyOrRun(\"obs64.exe\", \"^!+{F9}\", \"shortcuts\\OBS Studio.lnk\")"
+          }
+        ],
         "lj": [
           {
             "windowGroupID": 0,
             "actionTypeID": 1,
             "comment": "打开「 回收站 」文件夹",
             "target": "shell:RecycleBinFolder"
+          }
+        ],
+        "lk": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 8,
+            "comment": "OBS 开始录制",
+            "ahkCode": "ProcessExistSendKeyOrRun(\"obs64.exe\", \"^!+{F8}\", \"shortcuts\\OBS Studio.lnk\")"
           }
         ],
         "ly": [
@@ -1976,6 +2040,13 @@
             "actionTypeID": 2,
             "comment": "label:23",
             "actionValueID": 7
+          }
+        ],
+        "sc": [
+          {
+            "windowGroupID": 0,
+            "actionTypeID": 1,
+            "target": "shortcuts\\syncthing.lnk"
           }
         ],
         "se": [
@@ -2209,6 +2280,6 @@
     "startup": true,
     "language": "zh",
     "keyMapping": "",
-    "keyboardLayout": "1 2 3 4 5 6 7 8 9 0\nq w e r t y u i o p\na s d f g h j k l ;\nz x c v b n m , . /\nspace enter backspace - [ ' singlePress"
+    "keyboardLayout": "1 2 3 4 5 6 7 8 9 0\nq w e r t y u i o p\na s d f g h j k l ;\nz x c v b n m , . /\nspace enter backspace - [ ] ' \nLButton RButton MButton XButton1 XButton2\nWheelUp WheelDown WheelLeft WheelRight singlePress"
   }
 }
