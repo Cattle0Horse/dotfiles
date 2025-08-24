@@ -1,2 +1,2 @@
-配置：https://github.com/Mintimate/oh-my-rime
-词库：https://github.com/iDvel/rime-ice
+- 配置方案：https://github.com/amzxyz/rime_wanxiang
+- 语法模型：https://github.com/amzxyz/RIME-LMDG

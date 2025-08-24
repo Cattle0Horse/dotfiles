@@ -1,6 +1,11 @@
 var:
-  last_build_time: 1742020062
+  last_build_time: 1756023706
   option:
-    ascii_punct: false
-    emoji_suggestion: false
-    full_shape: false
+    chinese_english: false
+    emoji: true
+    tone_display: true
+    tone_hint: false
+  previously_selected_schema: wanxiang
+  schema_access_time:
+    wanxiang: 1756017921
+    wanxiang_pro: 1756017913
