@@ -74,6 +74,8 @@
   commit = no
   # ff = no 表示默认不使用 fast-forward 合并策略，总是创建一个新的合并提交
   ff = no
+  # autostash = true 在执行 git merge 时自动暂存未提交的更改，merge 完成后自动恢复
+  autostash = true
 
 [push]
   # autoSetupRemote = true 在 push 时自动设置远程跟踪分支，无需每次使用 --set-upstream
@@ -85,15 +87,18 @@
 
 [pull]
   # ff = yes 表示在拉取代码时尽量使用 fast-forward 方式合并（不创建额外的合并提交）
-  ff = yes
+  # ff = only 表示在拉取代码时只允许 fast-forward 合并，不允许创建额外的合并提交
+  ff = only
   # default = current 表示默认只拉取当前分支
   default = current
   # rebase = true 表示在拉取时使用 rebase 而不是 merge 来整合远程提交，避免合并提交
   rebase = true
+  # autostash = true 表示在 pull 时自动暂存未提交的更改，pull 完成后再恢复
+  autostash = true
 
 [rebase]
-  # autoStash = true 在 rebase 前自动暂存未提交的更改，rebase 完成后自动恢复
-  autoStash = true
+  # autostash = true 在 rebase 前自动暂存未提交的更改，rebase 完成后自动恢复
+  autostash = true
 
 [branch]
   # sort = -committerdate 按照提交者时间倒序排列分支（git branch -a 时的排序方式）
