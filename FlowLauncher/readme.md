@@ -3,3 +3,4 @@
 - https://github.com/taooceros/Flow.Plugin.VSCodeWorkspace
 - https://github.com/yu-xiaoyao/Flow.Launcher.Plugin.Snippets
 - https://github.com/Lu-Jiejie/flow-launcher-multi-translate
+- https://github.com/Flow-Launcher/Flow.Launcher.Plugin.BrowserTabs
