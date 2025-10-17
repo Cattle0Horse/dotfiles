@@ -1,10 +1,13 @@
 {
   // toggleSuggestionDetails 按键切换用户代码片段预览(建议细节, 及其代码片段过大及其卡顿, 可查看按键绑定切换)
   // ----------------- 系统设置 -----------------
+  // 鼠标悬浮提示
+  "editor.hover.enabled": false,
   // 文件显示过滤
   "files.exclude": {
     // 版本控制相关
-    "**/.git": true,
+    "**/.git": false,
+    "**/.git/objects": true, // 对象文件太多，不显示
     "**/.svn": true,
     "**/.hg": true,
     // 操作系统元文件
@@ -14,7 +17,7 @@
   // 控制 UI 是否应在已针对屏幕阅读器进行优化的模式下运行
   "editor.accessibilitySupport": "auto",
   // 保存文件时，在文件末尾添加单独的空行（如果没有）
-  "notebook.insertFinalNewline": true,
+  "notebook.insertFinalNewline": false,
   // 关闭copilot
   "chat.commandCenter.enabled": false,
   "github.copilot.enable": {
@@ -253,12 +256,18 @@
 
   //  ------------------------ language ----------------------------
   // 文件类型关联
-  "files.associations": { "*.clang-format": "yaml", "*.opml": "xml" },
+  "files.associations": {
+    "*.clang-format": "yaml",
+    "*.opml": "xml",
+    "*.toml": "toml"
+  },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[snippets]": { "editor.defaultFormatter": "vscode.json-language-features" },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
-  "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers"
+  },
   "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[yaml]": {
     "editor.insertSpaces": true,
@@ -271,10 +280,28 @@
       "strings": true
     }
   },
+  "[ahk]": { "editor.defaultFormatter": "mark-wiemer.vscode-autohotkey-plus-plus" },
   "[shellscript]": {
     "files.eol": "\n",
     "editor.defaultColorDecorators": "never",
     "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   // ------------------------ markdown ---------------------------
   "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
@@ -359,9 +386,7 @@
   "markdown-preview-enhanced.previewMode": "Single Preview", // 预览模式（对于切换markdown文件时）
   "markdown-preview-enhanced.printBackground": false, // 打印时是否包含背景颜色
   "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": true, // 隐藏VSCode原生预览按钮
-  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false, // 禁用自动显示编辑中的文件预览
-  "markdown-preview-enhanced.imageMagickPath": "", // ImageMagick工具路径（图片转换），如果为空，则使用sharp替代
-  "markdown-preview-enhanced.chromePath": "", // 指定Chrome浏览器路径
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false, // 指定Chrome浏览器路径
   "markdown-preview-enhanced.frontMatterRenderingOption": "none", // YAML front matter渲染方式
   "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
   "markdown-preview-enhanced.revealjsTheme": "black.css",
@@ -421,19 +446,27 @@
   "markdown-preview-enhanced.puppeteerWaitForTimeout": 0, // Puppeteer等待超时时间（毫秒）
   //  ------------------------ python ----------
   "python.analysis.typeCheckingMode": "standard",
-  "python.analysis.inlayHints.callArgumentNames": "off",
-  "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.cacheLSPData": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.createEnvironment.trigger": "off",
+  "python.analysis.diagnosticMode": "workspace",
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.rulers": [88], // 对标 Ruff Formatter 默认长度
+    "editor.rulers": [120],
     //【可选】保存时的行为
     // "editor.codeActionsOnSave": {
     //   重排导入项
     //   "source.organizeImports.ruff": "explicit"
     // },
     "editor.formatOnType": true
+  },
+  // ----------  charliermarsh.ruff --------------
+  "ruff.configuration": {
+    "format": {
+      "quote-style": "preserve"
+    }
   },
   // ---------- njpwerner.autodocstring ----------
   "autoDocstring.logLevel": "None",
@@ -472,6 +505,8 @@
   "java.configuration.maven.userSettings": "path/to/settings.xml", // HINT: change this
   "java.configuration.maven.globalSettings": "path/to/settings.xml", // HINT: change this
   "java.compile.nullAnalysis.mode": "automatic",
+  "java.jdt.ls.java.home": "/path/to/temurin21-jdk", // HINT: change this
+  "xml.java.home": "/path/to/temurin21-jdk", // HINT: change this
   // "java.settings.url": "",
   //  ------------------------ Git ----------------------------
   // 自动从当前 Git 存储库的默认远程库提取提交
@@ -552,7 +587,6 @@
   "prettier.endOfLine": "lf",
   "prettier.singleQuote": false,
   "prettier.jsxSingleQuote": false,
-  "prettier.quoteProps": "as-needed",
   "prettier.semi": false,
   "prettier.trailingComma": "none",
   "prettier.bracketSpacing": true,
@@ -656,9 +690,7 @@
       "key": "w",
       "name": "窗口相关...",
       "type": "bindings",
-      "bindings": [
-        { "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS"}
-      ]
+      "bindings": [{ "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS" }]
     },
     {
       "key": "v",
@@ -668,7 +700,7 @@
       "bindings": [
         { "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" },
         { "key": "b", "name": "切换 Git Line Blame 内联显示", "type": "command", "command": "betterGitLineBlame.toggleInlineAnnotations" },
-        { "key": "c", "name": "切换注释浏览模式", "type": "command", "command": "commentTranslate.toggleDocumentBrowseMode" },
+        { "key": "c", "name": "切换注释浏览模式", "type": "command", "command": "commentTranslate.toggleDocumentBrowseMode" }
       ]
     },
     {
@@ -677,7 +709,7 @@
       "type": "bindings",
       "bindings": [
         { "key": "f", "name": "Pylance: 折叠所有 Docstring", "type": "command", "command": "pylance.foldDocstrings" },
-        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" },
+        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" }
       ]
     }
   ],
@@ -887,6 +919,10 @@
   "fittencode.languagePreference.displayPreference": "zh-cn",
   "fittencode.languagePreference.commentPreference": "zh-cn",
   "fittencode.selection.showCodeLens": false,
+  // --------------- dev container ------------------------------
+  "dev.containers.dockerPath": "podman",
+  // https://github.com/containers/podman/issues/17986
+  "dev.containers.mountWaylandSocket": false,
   // --------------- intellsmi.comment-translate ---------------
   "commentTranslate.hover.string": true,
   "commentTranslate.hover.variable": true,
@@ -918,6 +954,5 @@
   "codingcopilot.enableCloseCompletionShortcutTip": true,
   "codingcopilot.CommitMessageStyle": "ConventionalCommits",
   // unchecked
-  "workbench.remoteIndicator.showExtensionRecommendations": false,
-  "remote.defaultExtensionsIfInstalledLocally": []
+  "workbench.remoteIndicator.showExtensionRecommendations": false
 }
