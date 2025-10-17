@@ -596,7 +596,8 @@
       "type": "bindings",
       "bindings": [
         { "key": "f", "name": "格式化", "type": "command", "command": "editor.action.formatDocument" },
-        { "key": "r", "name": "重命名变量", "type": "command", "command": "editor.action.formatDocument" }
+        { "key": "r", "name": "重命名变量", "type": "command", "command": "editor.action.formatDocument" },
+        { "key": "t", "name": "裁剪行尾空格", "type": "command", "command": "editor.action.trimTrailingWhitespace" }
       ]
     },
     {
@@ -652,6 +653,14 @@
       ]
     },
     {
+      "key": "w",
+      "name": "窗口相关...",
+      "type": "bindings",
+      "bindings": [
+        { "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS"}
+      ]
+    },
+    {
       "key": "v",
       "name": "文件显示相关...",
       "type": "bindings",
@@ -660,6 +669,15 @@
         { "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" },
         { "key": "b", "name": "切换 Git Line Blame 内联显示", "type": "command", "command": "betterGitLineBlame.toggleInlineAnnotations" },
         { "key": "c", "name": "切换注释浏览模式", "type": "command", "command": "commentTranslate.toggleDocumentBrowseMode" },
+      ]
+    },
+    {
+      "key": "p",
+      "name": "Pylance...",
+      "type": "bindings",
+      "bindings": [
+        { "key": "f", "name": "Pylance: 折叠所有 Docstring", "type": "command", "command": "pylance.foldDocstrings" },
+        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" },
       ]
     }
   ],
