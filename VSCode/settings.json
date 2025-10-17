@@ -286,9 +286,6 @@
     "editor.defaultColorDecorators": "never",
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "[sql]": {
-    "editor.defaultFormatter": "mtxr.sqltools"
-  },
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
