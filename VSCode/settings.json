@@ -687,7 +687,9 @@
       "key": "w",
       "name": "窗口相关...",
       "type": "bindings",
-      "bindings": [{ "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS" }]
+      "bindings": [
+        { "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS"}
+      ]
     },
     {
       "key": "v",
@@ -697,7 +699,7 @@
       "bindings": [
         { "key": "w", "name": "切换折行显示", "type": "command", "command": "editor.action.toggleWordWrap" },
         { "key": "b", "name": "切换 Git Line Blame 内联显示", "type": "command", "command": "betterGitLineBlame.toggleInlineAnnotations" },
-        { "key": "c", "name": "切换注释浏览模式", "type": "command", "command": "commentTranslate.toggleDocumentBrowseMode" }
+        { "key": "c", "name": "切换注释浏览模式", "type": "command", "command": "commentTranslate.toggleDocumentBrowseMode" },
       ]
     },
     {
@@ -706,7 +708,7 @@
       "type": "bindings",
       "bindings": [
         { "key": "f", "name": "Pylance: 折叠所有 Docstring", "type": "command", "command": "pylance.foldDocstrings" },
-        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" }
+        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" },
       ]
     }
   ],
@@ -916,10 +918,6 @@
   "fittencode.languagePreference.displayPreference": "zh-cn",
   "fittencode.languagePreference.commentPreference": "zh-cn",
   "fittencode.selection.showCodeLens": false,
-  // --------------- dev container ------------------------------
-  "dev.containers.dockerPath": "podman",
-  // https://github.com/containers/podman/issues/17986
-  "dev.containers.mountWaylandSocket": false,
   // --------------- intellsmi.comment-translate ---------------
   "commentTranslate.hover.string": true,
   "commentTranslate.hover.variable": true,
@@ -951,5 +949,13 @@
   "codingcopilot.enableCloseCompletionShortcutTip": true,
   "codingcopilot.CommitMessageStyle": "ConventionalCommits",
   // unchecked
-  "workbench.remoteIndicator.showExtensionRecommendations": false
+  "workbench.remoteIndicator.showExtensionRecommendations": false,
+  "remote.defaultExtensionsIfInstalledLocally": [],
+  "dev.containers.dockerPath": "podman",
+  // https://github.com/containers/podman/issues/17986
+  "dev.containers.mountWaylandSocket": false,
+  "betterGitLineBlame.showInlineAnnotations": true,
+  "database-client.defaultSelectLimit": 50,
+  "database-client.telemetry.usesOnlineServices": false,
+  "diffEditor.maxComputationTime": 0,
 }
