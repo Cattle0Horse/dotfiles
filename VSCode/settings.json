@@ -442,16 +442,20 @@
   "markdown-preview-enhanced.puppeteerArgs": [], // Puppeteer启动参数
   "markdown-preview-enhanced.puppeteerWaitForTimeout": 0, // Puppeteer等待超时时间（毫秒）
   //  ------------------------ python ----------
+  //  ------------------------ python ----------
   "python.analysis.typeCheckingMode": "standard",
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
-  "python.analysis.cacheLSPData": true,
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.createEnvironment.trigger": "off",
   "python.analysis.diagnosticMode": "workspace",
+  "python-envs.terminal.autoActivationType": "off",
+  "python-envs.terminal.showActivateButton": false,
+  "python.terminal.activateEnvInCurrentTerminal": false,
+  "python.languageServer": "Default", // 使用 ty 作为服务器
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.rulers": [120],
+    "editor.rulers": [180],
     //【可选】保存时的行为
     // "editor.codeActionsOnSave": {
     //   重排导入项
@@ -459,12 +463,64 @@
     // },
     "editor.formatOnType": true
   },
+  "debugpy.showPythonInlineValues": true,
+  "python.terminal.activateEnvironment": false,
+  "python.testing.pytestEnabled": true,
+  "python.analysis.fixAll": [
+    "source.convertImportFormat",
+    "source.convertImportStar",
+    "source.unusedImports",
+    // "source.addTypeAnnotation"
+  ],
+  // ---------- astral-sh.ty ---------------------
+  "ty.disableLanguageServices": false,
+  "ty.importStrategy": "useBundled",
+  "ty.diagnosticMode": "workspace",
   // ----------  charliermarsh.ruff --------------
   "ruff.configuration": {
     "format": {
       "quote-style": "preserve"
     }
   },
+  "ruff.lineLength": 180,
+  "ruff.lint.select": [
+    "E", // pycodestyle errors
+    "F", // pyflakes
+    "W", // pycodestyle warnings
+    "I", // isort
+    "UP", // pyupgrade
+    "ANN", // annotations
+    "S", // security
+    "BLE", // blind except
+    "B", // bugbear
+    "C4", // comprehensions
+    // "DTZ", // datetime timezone
+    "FA", // from import
+    "ISC", // implicit str concat
+    "ICN", // import conventions
+    "PIE", // pyflakes extensions
+    "T20", // print statements
+    "PT", // pytest
+    "RET", // return
+    "SIM", // simplify
+    "TID", // tidy imports
+    "ARG", // unused arguments
+    "TRY", // try except
+    "RUF", // ruff specific
+  ],
+  "ruff.lint.ignore": [
+    "E501", // line too long
+    "ANN401", // any type annotation
+    "RUF001", // ambiguous unicode characters (chinese punctuation)
+    "RUF002", // ambiguous unicode characters in docstrings
+    "RUF003", // ambiguous unicode characters in comments
+    "RUF022", // unsorted __all__
+    "PLR0913", // too many arguments
+    "PLW0603", // global statement
+    "N818", // exception naming convention
+    "TRY003", // long messages outside exception class
+    "TRY300",
+  ],
   // ---------- njpwerner.autodocstring ----------
   "autoDocstring.logLevel": "None",
   "autoDocstring.docstringFormat": "sphinx-notypes",
