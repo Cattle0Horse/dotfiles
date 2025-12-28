@@ -1,0 +1,46 @@
+# ruff.toml
+
+line-length = 180
+
+lint.select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "I",   # isort
+    "UP",  # pyupgrade
+    "ANN", # annotations
+    "S",   # security
+    "BLE", # blind except
+    "B",   # bugbear
+    "C4",  # comprehensions
+    # "DTZ", # datetime timezone (disabled)
+    "FA",  # from import
+    "ISC", # implicit str concat
+    "ICN", # import conventions
+    "PIE", # pyflakes extensions
+    "T20", # print statements
+    "PT",  # pytest
+    "RET", # return
+    "SIM", # simplify
+    "TID", # tidy imports
+    "ARG", # unused arguments
+    "TRY", # try except
+    "RUF", # ruff specific
+]
+
+lint.ignore = [
+    "E501",    # line too long
+    "ANN401",  # any type annotation
+    "RUF001",  # ambiguous unicode characters (chinese punctuation)
+    "RUF002",  # ambiguous unicode characters in docstrings
+    "RUF003",  # ambiguous unicode characters in comments
+    "RUF022",  # unsorted __all__
+    "PLR0913", # too many arguments
+    "PLW0603", # global statement
+    "N818",    # exception naming convention
+    "TRY003",  # long messages outside exception class
+    "TRY300",
+]
+
+[format]
+quote-style = "preserve"
