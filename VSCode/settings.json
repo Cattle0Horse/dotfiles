@@ -17,7 +17,9 @@
   // 控制 UI 是否应在已针对屏幕阅读器进行优化的模式下运行
   "editor.accessibilitySupport": "auto",
   // 保存文件时，在文件末尾添加单独的空行（如果没有）
-  "notebook.insertFinalNewline": false,
+  "notebook.insertFinalNewline": true,
+  // 保存文件时在文件末尾插入一个最终新行
+  "files.insertFinalNewline": false,
   // 关闭copilot
   "chat.commandCenter.enabled": false,
   "github.copilot.enable": {
@@ -74,8 +76,6 @@
   "chat.editRequests": "none",
   // 控制在粘贴本机文件和文件夹时资源管理器是否应要求进行确认
   "explorer.confirmPasteNative": false,
-  // 保存文件时在文件末尾插入一个最终新行
-  "files.insertFinalNewline": true,
   // 禁用遥测
   "telemetry.telemetryLevel": "off",
   "telemetry.feedback.enabled": false,
@@ -96,7 +96,7 @@
   // 顶部窗口显示标题
   "window.title": "${dirty}${folderName}${separator}${activeEditorShort}",
   // 字体大小设置
-  "editor.fontSize": 17,
+  "editor.fontSize": 16,
   // "editor.fontFamily": "'Cascadia Code NF', '等距更纱黑体 SC', monospace",
   "editor.fontFamily": "'Maple Mono NF CN'",
   // 字体样式设置
@@ -314,9 +314,7 @@
   "[snippets]": { "editor.defaultFormatter": "vscode.json-language-features" },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-containers"
-  },
+  "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
   "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[yaml]": {
     "editor.insertSpaces": true,
@@ -432,7 +430,9 @@
   "markdown-preview-enhanced.previewMode": "Single Preview", // 预览模式（对于切换markdown文件时）
   "markdown-preview-enhanced.printBackground": false, // 打印时是否包含背景颜色
   "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": true, // 隐藏VSCode原生预览按钮
-  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false, // 指定Chrome浏览器路径
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false, // 禁用自动显示编辑中的文件预览
+  "markdown-preview-enhanced.imageMagickPath": "", // ImageMagick工具路径（图片转换），如果为空，则使用sharp替代
+  "markdown-preview-enhanced.chromePath": "", // 指定Chrome浏览器路径
   "markdown-preview-enhanced.frontMatterRenderingOption": "none", // YAML front matter渲染方式
   "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
   "markdown-preview-enhanced.revealjsTheme": "black.css",
@@ -491,7 +491,6 @@
   "markdown-preview-enhanced.puppeteerArgs": [], // Puppeteer启动参数
   "markdown-preview-enhanced.puppeteerWaitForTimeout": 0, // Puppeteer等待超时时间（毫秒）
   //  ------------------------ python ----------
-  //  ------------------------ python ----------
   "python.analysis.typeCheckingMode": "standard",
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
@@ -518,7 +517,7 @@
   "python.analysis.fixAll": [
     "source.convertImportFormat",
     "source.convertImportStar",
-    "source.unusedImports",
+    "source.unusedImports"
     // "source.addTypeAnnotation"
   ],
   // ---------- astral-sh.ty ---------------------
@@ -555,7 +554,7 @@
     "TID", // tidy imports
     "ARG", // unused arguments
     "TRY", // try except
-    "RUF", // ruff specific
+    "RUF" // ruff specific
   ],
   "ruff.lint.ignore": [
     "E501", // line too long
@@ -568,7 +567,7 @@
     "PLW0603", // global statement
     "N818", // exception naming convention
     "TRY003", // long messages outside exception class
-    "TRY300",
+    "TRY300"
   ],
   // ---------- njpwerner.autodocstring ----------
   "autoDocstring.logLevel": "None",
@@ -689,6 +688,7 @@
   "prettier.endOfLine": "lf",
   "prettier.singleQuote": false,
   "prettier.jsxSingleQuote": false,
+  "prettier.quoteProps": "as-needed",
   "prettier.semi": false,
   "prettier.trailingComma": "none",
   "prettier.bracketSpacing": true,
@@ -792,9 +792,7 @@
       "key": "w",
       "name": "窗口相关...",
       "type": "bindings",
-      "bindings": [
-        { "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS"}
-      ]
+      "bindings": [{ "key": "e", "name": "在资源管理器中显示", "type": "command", "command": "revealFileInOS" }]
     },
     {
       "key": "v",
@@ -813,7 +811,7 @@
       "type": "bindings",
       "bindings": [
         { "key": "f", "name": "Pylance: 折叠所有 Docstring", "type": "command", "command": "pylance.foldDocstrings" },
-        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" },
+        { "key": "u", "name": "Pylance: 展开所有 Docstring", "type": "command", "command": "pylance.unfoldDocstrings" }
       ]
     }
   ],
@@ -1062,5 +1060,5 @@
   "betterGitLineBlame.showInlineAnnotations": true,
   "database-client.defaultSelectLimit": 50,
   "database-client.telemetry.usesOnlineServices": false,
-  "diffEditor.maxComputationTime": 0,
+  "diffEditor.maxComputationTime": 0
 }
