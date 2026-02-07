@@ -30,6 +30,7 @@
   compression = 9
   # 全局忽略文件
   excludesfile = ~/.config/git/ignore
+  symlinks = true
 
 [alias]
   # 自定义一个别名 `git lg`，用来以图形化方式查看提交历史。显示内容包括：
