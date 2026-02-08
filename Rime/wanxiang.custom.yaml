@@ -18,7 +18,7 @@ patch:
     lunar_birthdays:  # 农历生日, 姓名: "日期,备注" or 姓名: "日期"
       小明: "0114"
       小红: "0815,农历中秋"
-  #下面用来改变你的windows小狼毫右下角软件图标
+  # 下面用来改变你的windows小狼毫右下角软件图标
   # 如果时不时出现卡顿，请取消该修改
   schema/+:
     full_icon: "icons/full.ico"
