@@ -1,0 +1,12 @@
+# ~/.wslconfig
+# 可使用 wsl settings 修改，其中有描述
+[wsl2]
+networkingMode=Mirrored
+autoProxy=false
+firewall=false
+processors=8
+memory=16GB
+swap=0
+
+[experimental]
+hostAddressLoopback=true
