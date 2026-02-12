@@ -68,7 +68,7 @@ style = "bright-white"
 format = "$all_status$ahead_behind "
 
 [hostname]
-ssh_only = true
+ssh_only = false
 format = "<[$hostname]($style)> "
 trim_at = "-"
 style = "bold dimmed white"
