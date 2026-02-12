@@ -2,19 +2,19 @@
 " 基础设置
 " ==================================================
 
-set nocompatible              " 关闭兼容模式
-set incsearch                 " 增量搜索
-set hlsearch                  " 高亮搜索结果
-set ignorecase                " 搜索忽略大小写
-set smartcase                 " 含大写时区分大小写
-set clipboard=unnamedplus     " 使用系统剪贴板
-set number                    " 显示绝对行号
-set relativenumber            " 相对行号
-set cursorline                " 高亮当前行
-set showcmd                   " 显示输入的命令
-set foldlevel=99              " 默认不折叠
+set nocompatible
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set clipboard=unnamedplus
+set number
+set relativenumber
+set cursorline
+set showcmd
+set foldlevel=99
 
-let mapleader=" "             " leader 键设为空格
+let mapleader=" "
 
 
 " ==================================================
@@ -28,11 +28,15 @@ nnoremap k <Down>
 nnoremap j <Left>
 nnoremap l <Right>
 
-nnoremap J ^                 " 到行首（非空白）
-nnoremap L $                 " 到行尾
+" 到行首（非空白）
+nnoremap J ^
+" 到行尾
+nnoremap L $
 
-nnoremap I 5<Up>             " 向上移动5行
-nnoremap K 5<Down>           " 向下移动5行
+" 向上移动5行
+nnoremap I 5<Up>
+" 向下移动5行
+nnoremap K 5<Down>
 
 " Visual 模式
 vnoremap i <Up>
@@ -60,11 +64,13 @@ onoremap L $
 " 插入模式入口
 " ==================================================
 
-nnoremap h i                 " h 进入插入模式
+" h 进入插入模式
+nnoremap h i
 vnoremap h i
 onoremap h i
 
-nnoremap H I                 " H 行首插入
+" H 行首插入
+nnoremap H I
 vnoremap H I
 
 
@@ -72,8 +78,10 @@ vnoremap H I
 " 屏幕滚动控制
 " ==================================================
 
-nnoremap zi zt               " 当前行到屏幕顶部
-nnoremap zk zb               " 当前行到屏幕底部
+" 当前行到屏幕顶部
+nnoremap zi zt
+" 当前行到屏幕底部
+nnoremap zk zb
 vnoremap zi zt
 vnoremap zk zb
 
@@ -141,8 +149,10 @@ onoremap <Delete> "_d
 " 向上 / 向下复制行
 " ==================================================
 
-nnoremap <leader>ck :t.<CR>          " 向下复制当前行
-nnoremap <leader>ci :t-1<CR>         " 向上复制当前行
+" 向下复制当前行
+nnoremap <leader>ck :t.<CR>
+" 向上复制当前行
+nnoremap <leader>ci :t-1<CR>
 
 vnoremap <leader>ck :t'>+0<CR>gv
 vnoremap <leader>ci :t'<-1<CR>gv
@@ -152,7 +162,8 @@ vnoremap <leader>ci :t'<-1<CR>gv
 " 折叠控制
 " ==================================================
 
-nnoremap zf za               " 切换折叠
+" 切换折叠
+nnoremap zf za
 
 
 " ==================================================
@@ -174,9 +185,10 @@ nnoremap <leader>fd gg=G
 " 其他推荐
 " ==================================================
 
-set timeoutlen=300           " which-key 类体验更好
-set scrolloff=5             " 光标上下保留5行
+set timeoutlen=300
+set scrolloff=5
 set sidescrolloff=5
+
 
 " =========================
 " 主题设置
